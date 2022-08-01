@@ -1,8 +1,23 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
+
+use App\Http\Controllers\NilaiController;
+use App\Http\Controllers\ExtrakulikulerController;
+use App\Http\Controllers\PrestasiController;
+use App\Http\Controllers\PengumumanController;
+use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\TartibController;
+
+use App\Http\Controllers\dafExtrakulikulerController;
+use App\Http\Controllers\dafNilaiController;
+use App\Http\Controllers\dafPrestasiController;
+use App\Http\Controllers\dafAdministrasiController;
+use App\Http\Controllers\dafKurikulumController;
+use App\Http\Controllers\dafTartibController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +34,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [HomeController::class,'index'])->middleware(['auth'])->name('dashboard');
+// Dashboard
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware(['auth'])->name('dashboard');
 
-Route::get('home', [HomeController::class,'index'])->middleware(['auth'])->name('home');
+// Nilai
+Route::get('dafnilai', [dafNilaiController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('nilai', [NilaiController::class,'index'])->middleware(['auth'])->name('dashboard');
 
+// Extrakulikuler
+Route::get('dafextrakulikuler', [dafExtrakulikulerController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('extrakulikuler', [ExtrakulikulerController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Prestasi
+Route::get('dafprestasi', [dafPrestasiController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('prestasi', [PrestasiController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Administrasi
+Route::get('dafadministrasi', [dafAdministrasiController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('pengumuman', [PengumumanController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Kurikulum
+Route::get('dafkurikulum', [dafKurikulumController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('kurikulum', [KurikulumController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Tata Tertib
+Route::get('daftartib', [dafTartibController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('tartib', [TartibController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function(){
     Route::resource('tasks', TaskCotroller::class);

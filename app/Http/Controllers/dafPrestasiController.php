@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class dafPrestasiController extends Controller
 {
     function index(){
-        return view('admin.dashboard');
+        return view('layouts.dafprestasi-layout');
     }
 }

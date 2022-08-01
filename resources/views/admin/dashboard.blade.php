@@ -1,2 +1,2 @@
-<x-admin-layout>
-</x-admin-layout>
+<x-nilai-layout>
+</x-nilai-layout>
