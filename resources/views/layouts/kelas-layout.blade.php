@@ -95,7 +95,8 @@ $mapel = "";
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dafextrakulikuler"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
@@ -116,7 +117,7 @@ $mapel = "";
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
-            <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafkelas" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fab fa-slideshare mr-3"></i>
                 Kelas
             </a>
@@ -146,13 +147,13 @@ $mapel = "";
             <main class="w-full flex-grow p-6">
                 {{-- Search Bar --}}
                 <div class="lg:flex justify-between items-center mb-6">
-                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Daftar Nilai Extrakulikuler : Futsal</p>
+                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Data Kelas 6</p>
                     <div>
                         <div>
                             <div>
                                 <div class="flex items-left">
                                     <div class="mt-2">
-                                        <form action="dafextrakulikuler">
+                                        <form action="dafkelas">
                                             <button class="btn btn-circle btn-outline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -203,6 +204,7 @@ $mapel = "";
                                 </div>
                             </div>
                         </div>
+                        {{-- End Search Bar --}}
                     </div>
                 </div>
                 {{-- Akhir Button Kanan --}}
@@ -219,43 +221,45 @@ $mapel = "";
                                             class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400 bg-white"
                                             align="center">
                                             <tr>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Nama
-                                                    Extrakulikuler</th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Pembina</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Kelas</th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Ketua
-                                                </th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Jumlah Anggota
-                                                </th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Wali Kelas</th>
                                                 <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Konseling</th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Jumlah Murid
+                                                </th>
                                                 <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
                                             </tr>
                                         </thead>
                                         <tbody align="center" class="bg-white">
-                                            <td class="px-4 py-2 whitespace-nowrap">Futsal</td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Pak Heru</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Kelas 6</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Ahmad</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Heru</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">32</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Budi</td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap">29</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                         </tbody>
                                     </table>
@@ -267,257 +271,250 @@ $mapel = "";
                 {{-- Akhir Tabel Guru --}}
 
                 {{-- Search Bar --}}
-                <div class="mt-8">
-                    <div class="mt-4">
-                        <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
-                            <span>
-                                <h3>Nama/NIS</h3>
-                                <div class="flex items-left"><button class="text-gray-500 focus:outline-none lg:hidden">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg></button>
+                <div>
+                    <div class="mt-8">
+                        <div class="mt-4">
+                            <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
+                                <span>
+                                    <h3>Cari NIS</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden">
+                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg></button>
 
-                                    <div class="relative mx-4 lg:mx-0"><span
-                                            class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
-                                            class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                            type="text" placeholder="Search">
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
+                                                class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                                type="text" placeholder="Search">
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
-                            <span>
-                                <h3>Cari Kelas</h3>
-                                <div class="flex items-left"><button
-                                        class="text-gray-500 focus:outline-none lg:hidden"></button>
+                                </span>
+                                <span>
+                                    <h3>Jenis Kelamin</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden"></button>
 
-                                    <div class="relative mx-4 lg:mx-0"><span
-                                            class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
-                                        <select
-                                            class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
-                                            <option>Search</option>
-                                            <option>Kelas 6</option>
-                                            <option>Kelas 5</option>
-                                            <option>Kelas 4</option>
-                                        </select>
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
+                                            <select
+                                                class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
+                                                <option>Search</option>
+                                                <option>Laki - Laki</option>
+                                                <option>Perempuan</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
+                                </span>
+                                <span>
+                                    <h3>Agama</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden"></button>
+
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
+                                            <select
+                                                class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
+                                                <option>Search</option>
+                                                <option>Islam</option>
+                                                <option>Kristen</option>
+                                                <option>Budha</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 {{-- End Search Bar --}}
 
-                {{-- Isi Tabel --}}
-                <div class="flex flex-col mt-8">
-                    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                        <div
-                            class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            No.</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nama Murid</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            NIS</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Kelas
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Jabatan
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nilai
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Catatan
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white">
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        1.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Ahmad</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99901</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Ketua
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        2.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dandi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99902</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Wakil Ketua
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dika</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99903</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Andi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99904</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <div id="page-wrapper">
+                    <div id="w-full max-w-xs">
+                        <!-- /. ROW  -->
+                        <!-- Isi -->
+                        <br>
+                        <!-- Tabel Data -->
+                        <div id="page-wrapper">
+                            <div id="w-full max-w-xs">
+                                <div class="flex flex-col">
+                                    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                        <div
+                                            class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                                            <table id="tabelNilai"
+                                                class="w-full text-sm text-left text-black-500 dark:text-black-400">
+                                                <thead
+                                                    class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400">
+                                                    <tr>
+                                                        <th scope="col" class="py-3 px-6">No.</th>
+                                                        <th scope="col" class="py-3 px-6">NAMA</th>
+                                                        <th scope="col" class="py-3 px-6">NIS</th>
+                                                        <th scope="col" class="py-3 px-6">NISN</th>
+                                                        <th scope="col" class="py-3 px-6">TAHUN MASUK</th>
+                                                        <th scope="col" class="py-3 px-6">JENIS KELAMIN</th>
+                                                        <th scope="col" class="py-3 px-6">AGAMA</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="bg-white">
+                                                    <tr>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="">
+                                                                <div class="ml-2">
+                                                                    <div
+                                                                        class="text-sm font-medium leading-5 text-gray-900">
+                                                                        1.</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">Ahmad</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">99901</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">00012301</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            2019
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Laki - Laki
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Islam
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="">
+                                                                <div class="ml-2">
+                                                                    <div
+                                                                        class="text-sm font-medium leading-5 text-gray-900">
+                                                                        2.</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">Dandi</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">99902</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">00012302</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            2019
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Laki - Laki
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Islam
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="">
+                                                                <div class="ml-2">
+                                                                    <div
+                                                                        class="text-sm font-medium leading-5 text-gray-900">
+                                                                        3.</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">Joshua</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">99903</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">00012303</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            2019
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Laki - Laki
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Kristen
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="">
+                                                                <div class="ml-2">
+                                                                    <div
+                                                                        class="text-sm font-medium leading-5 text-gray-900">
+                                                                        4.</div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">Fika</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">99904</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                            <div class="text-sm leading-5 text-gray-900">00012304</div>
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            2019
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Perempuan
+                                                        </td>
+                                                        <td
+                                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                            Islam
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- /. ROW  -->
                     </div>
-                    {{-- Akhir Isi Tabel --}}
+                    <!-- /. PAGE INNER  -->
                 </div>
-                <!-- Akhir Isi  -->
-                
             </main>
         </div>
-
     </div>
 
     <!-- AlpineJS -->

@@ -69,10 +69,6 @@
         #updateData {
             display: none;
         }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
     </style>
 
 </head>
@@ -82,6 +78,7 @@ $mapel = "";
 
 <body class="bg-gray-100 font-family-karla flex">
 
+    {{-- Side Bar --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="#" class="text-white text-3xl font-semibold hover:text-gray-300">SekolahXYZ</a>
@@ -99,17 +96,15 @@ $mapel = "";
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafextrakulikuler" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
-            <a href="dafprestasi" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
-            <a href="dafadministrasi"
-                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafadministrasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Administrasi
             </a>
@@ -121,16 +116,17 @@ $mapel = "";
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
-            <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafkelas" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fab fa-slideshare mr-3"></i>
                 Kelas
             </a>
         </nav>
     </aside>
+    {{-- Akhir Side Bar --}}
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
-        <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
+        <header class="w-full items-left bg-white py-2 px-6 hidden sm:flex">
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none">
@@ -152,59 +148,59 @@ $mapel = "";
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                <div id="page-wrapper">
-                    <div id="w-full max-w-xs">
-                        <!-- Isi -->
-                        <h3 class="text-3xl font-medium text-gray-700">Daftar Murid Prestasi</h3>
-                        <h5>Tahun Ajaran : 20xx/20xx Semester x</h5>
+                <h1 class="text-3xl text-black">Daftar Kelas</h1>
+                <h5>Tahun Ajaran : 20xx/20xx Semester x</h5>
+                {{-- Search Bar --}}
+                <div>
+                    <div class="mt-8">
+                        <div class="mt-4">
+                            <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
+                                <span>
+                                    <h3>Wali Kelas</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden">
+                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg></button>
 
-                        {{-- Search Bar --}}
-                        <div>
-                            <div class="mt-8">
-                                <div class="mt-4">
-                                    <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
-                                        <span>
-                                            <h3>Cari Nama/NIS</h3>
-                                            <div class="flex items-left"><button
-                                                    class="text-gray-500 focus:outline-none lg:hidden">
-                                                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor"
-                                                            stroke-width="2" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                    </svg></button>
-
-                                                <div class="relative mx-4 lg:mx-0"><span
-                                                        class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
-                                                        class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                                        type="text" placeholder="Search">
-                                                </div>
-                                            </div>
-                                        </span>
-                                        <span>
-                                            <h3>Cari Kelas</h3>
-                                            <div class="flex items-left"><button
-                                                    class="text-gray-500 focus:outline-none lg:hidden"></button>
-        
-                                                <div class="relative mx-4 lg:mx-0"><span
-                                                        class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
-                                                    <select
-                                                        class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
-                                                        <option>Search</option>
-                                                        <option>Kelas 6</option>
-                                                        <option>Kelas 5</option>
-                                                        <option>Kelas 4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </span>
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
+                                                class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                                type="text" placeholder="Search">
+                                        </div>
                                     </div>
-                                </div>
+                                </span>
+                                <span>
+                                    <h3>Kelas</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden"></button>
+
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
+                                            <select
+                                                class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
+                                                <option>Search</option>
+                                                <option>Kelas 6</option>
+                                                <option>Kelas 5</option>
+                                                <option>Kelas 4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </span>
                             </div>
                         </div>
-                        {{-- End Search Bar --}}
+                    </div>
+                    {{-- End Search Bar --}}
+                </div>
+                {{-- Akhir Search Bar --}}
 
-                        {{-- Isi Tabel --}}
+                <div id="page-wrapper">
+                    <div id="w-full max-w-xs">
+                        <!-- /. ROW  -->
+                        <!-- Isi -->
+                        {{-- Tabel --}}
                         <div class="flex flex-col mt-8">
                             <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                                 <div
@@ -214,28 +210,19 @@ $mapel = "";
                                             <tr>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Nama Murid </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    NIS </th>
+                                                    No.</th>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                                     Kelas</th>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Jenis
-                                                </th>
+                                                    Wali Kelas</th>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Kegiatan
-                                                </th>
+                                                    Konseling</th>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Capaian
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Point
+                                                    Jumlah Murid
                                                 </th>
                                                 <th
                                                     class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
@@ -246,36 +233,29 @@ $mapel = "";
                                             <tr>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="flex items-center">
-                                                        <div class="ml-4">
+                                                        <div class="ml-2">
                                                             <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                Ahmad</div>
+                                                                1.</div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">99901</div>
                                                 </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="text-sm leading-5 text-gray-900">Kelas 6</div>
                                                 </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba Futsal
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Juara 1
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    25
-                                                </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <form action="prestasi">
+                                                    <div class="text-sm leading-5 text-gray-900">Heru</div>
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    Budi
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    29
+                                                </td>
+                                                <td>
+                                                    <form action="kelas"
+                                                        class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <button
                                                             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                             <svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
@@ -290,36 +270,29 @@ $mapel = "";
                                             <tr>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="flex items-center">
-                                                        <div class="ml-4">
+                                                        <div class="ml-2">
                                                             <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                Diki</div>
+                                                                2.</div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">99902</div>
                                                 </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="text-sm leading-5 text-gray-900">Kelas 5</div>
                                                 </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba Basket
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Juara 2
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    15
-                                                </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <form action="#">
+                                                    <div class="text-sm leading-5 text-gray-900">Dandi</div>
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    Budi
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    30
+                                                </td>
+                                                <td>
+                                                    <form action="kelas"
+                                                        class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <button
                                                             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                             <svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
@@ -334,36 +307,29 @@ $mapel = "";
                                             <tr>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="flex items-center">
-                                                        <div class="ml-4">
+                                                        <div class="ml-2">
                                                             <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                Fika</div>
+                                                                3.</div>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">99903</div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div class="text-sm leading-5 text-gray-900">Kelas 4</div>
                                                 </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Lomba Tari
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Juara 1
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    25
-                                                </td>
                                                 <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <form action="#">
+                                                    <div class="text-sm leading-5 text-gray-900">Deti</div>
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    Budi
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    29
+                                                </td>
+                                                <td>
+                                                    <form action="kelas"
+                                                        class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <button
                                                             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                                             <svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
@@ -379,10 +345,11 @@ $mapel = "";
                                     </table>
                                 </div>
                             </div>
-                            {{-- Akhir Isi Tabel --}}
+                            {{-- Akhir Tabel --}}
                         </div>
-                        <!-- Akhir Isi  -->
+                        <!-- /. ROW  -->
                     </div>
+                    <!-- /. PAGE INNER  -->
                 </div>
             </main>
         </div>
@@ -475,7 +442,7 @@ $mapel = "";
             }
         });
     </script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function () {
 
             getNilai();
@@ -628,7 +595,7 @@ $mapel = "";
             }
 
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>

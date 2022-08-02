@@ -10,6 +10,8 @@ use App\Http\Controllers\PrestasiController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\TartibController;
+use App\Http\Controllers\RapotController;
+use App\Http\Controllers\KelasController;
 
 use App\Http\Controllers\dafExtrakulikulerController;
 use App\Http\Controllers\dafNilaiController;
@@ -17,6 +19,8 @@ use App\Http\Controllers\dafPrestasiController;
 use App\Http\Controllers\dafAdministrasiController;
 use App\Http\Controllers\dafKurikulumController;
 use App\Http\Controllers\dafTartibController;
+use App\Http\Controllers\dafRapotController;
+use App\Http\Controllers\dafKelasController;
 
 
 /*
@@ -60,6 +64,14 @@ Route::get('kurikulum', [KurikulumController::class,'index'])->middleware(['auth
 // Tata Tertib
 Route::get('daftartib', [dafTartibController::class,'index'])->middleware(['auth'])->name('dashboard');
 Route::get('tartib', [TartibController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Rapot
+Route::get('dafrapot', [dafRapotController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('rapot', [RapotController::class,'index'])->middleware(['auth'])->name('dashboard');
+
+// Kelas
+Route::get('dafkelas', [dafKelasController::class,'index'])->middleware(['auth'])->name('dashboard');
+Route::get('kelas', [KelasController::class,'index'])->middleware(['auth'])->name('dashboard');
 
 Route::middleware('auth')->group(function(){
     Route::resource('tasks', TaskCotroller::class);

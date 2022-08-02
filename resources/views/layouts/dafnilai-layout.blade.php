@@ -113,6 +113,14 @@ $mapel = "";
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
             </a>
+            <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fas fa-file mr-3"></i>
+                Rapot
+            </a>
+            <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+                <i class="fab fa-slideshare mr-3"></i>
+                Kelas
+            </a>
         </nav>
     </aside>
 

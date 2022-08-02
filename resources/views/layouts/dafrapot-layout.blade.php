@@ -78,7 +78,6 @@ $mapel = "";
 
 <body class="bg-gray-100 font-family-karla flex">
 
-    {{-- Side Bar --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="#" class="text-white text-3xl font-semibold hover:text-gray-300">SekolahXYZ</a>
@@ -96,7 +95,8 @@ $mapel = "";
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafextrakulikuler"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
@@ -104,15 +104,16 @@ $mapel = "";
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
-            <a href="dafadministrasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafadministrasi"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Administrasi
             </a>
-            <a href="daftartib" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="daftartib" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
             </a>
-            <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafrapot" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
@@ -122,7 +123,6 @@ $mapel = "";
             </a>
         </nav>
     </aside>
-    {{-- Akhir Side Bar --}}
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
@@ -146,90 +146,180 @@ $mapel = "";
             </div>
         </header>
 
-        <div class="w-full overflow-x-hidden border-t flex flex-col p-2">
-            <main class="h-full overflow-y-auto bg-white">
-                <div class="container px-6 mx-auto grid">
-                    <div class="lg:flex justify-between items-center mb-6">
-                        <p class="text-2xl font-semibold mb-2 lg:mb-0">Tata Tertib Baru</p>
-                        <div>
-                            <div>
-                                <div>
-                                    <div class="flex items-left">
-                                        <div class="mt-2">
-                                            <form action="daftartib">
-                                                <button class="btn btn-circle btn-outline">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                        viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                                </button>
-                                            </form>
+        <div class="w-full overflow-x-hidden border-t flex flex-col">
+            <main class="w-full flex-grow p-6">
+                <h1 class="text-3xl text-black">Cetak Rapot</h1>
+                <h5>Tahun Ajaran : 20xx/20xx Semester x</h5>
+                {{-- Search Bar --}}
+                <div>
+                    <div class="mt-8">
+                        <div class="mt-4">
+                            <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
+                                <span>
+                                    <h3>Cari Wali Kelas</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden">
+                                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg></button>
+
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
+                                                class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                                type="text" placeholder="Search">
                                         </div>
                                     </div>
+                                </span>
+                                <span>
+                                    <h3>Cari Mata Pelajaran</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden"></button>
+
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
+                                            <select
+                                                class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
+                                                <option>Search</option>
+                                                <option>Bahasa Indonesia</option>
+                                                <option>Agama Islam</option>
+                                                <option>Bahasa Inggris</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- End Search Bar --}}
+                </div>
+                {{-- Akhir Search Bar --}}
+
+                <div id="page-wrapper">
+                    <div id="w-full max-w-xs">
+                        <!-- /. ROW  -->
+                        <!-- Isi -->
+
+                        {{-- Tabs --}}
+                        <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                            <ul class="flex flex-wrap -mb-px">
+                                <li class="mr-2">
+                                    <a href="#" class="inline-block p-4 text-blue-600 rounded-t-lg border-b-2 border-blue-600 active dark:text-blue-500 dark:border-blue-500" aria-current="page">Kelas 6</a>
+                                </li>
+                                <li class="mr-2">
+                                    <a href="#" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Kelas 5</a>
+                                </li>
+                                <li class="mr-2">
+                                    <a href="#" class="inline-block p-4 rounded-t-lg border-b-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Kelas 4</a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{-- Akhir Tabs --}}
+
+                        {{-- Tabel --}}
+                        <div class="flex flex-col mt-8">
+                            <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                <div
+                                    class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                                    <table class="min-w-full">
+                                        <thead>
+                                            <tr>
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                                    Mata Pelajaran </th>
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                                    Wali Kelas</th>
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                                    Konseling
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                                    Jumlah Murid
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                                    Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="bg-white">
+                                            <tr>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="ml-4">
+                                                            <div class="text-sm font-medium leading-5 text-gray-900">
+                                                                Bahasa Indonesia</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="text-sm leading-5 text-gray-900">Heru</div>
+                                                </td>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="text-sm leading-5 text-gray-900">Budi</div>
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    29
+                                                </td>
+                                                <td>
+                                                    <form action="rapot"
+                                                        class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                        <button
+                                                            class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                            <svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="flex items-center">
+                                                        <div class="ml-4">
+                                                            <div class="text-sm font-medium leading-5 text-gray-900">
+                                                                Agama Islam</div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="text-sm leading-5 text-gray-900">Heru</div>
+                                                </td>
+                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                    <div class="text-sm leading-5 text-gray-900">Budi</div>
+                                                </td>
+                                                <td
+                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                                    29
+                                                </td>
+                                                <td>
+                                                    <form action="rapot"
+                                                        class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
+                                                        <button
+                                                            class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                            <svg aria-hidden="true" class="w-4 h-4" fill="currentColor"
+                                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd"></path>
+                                                            </svg></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            {{-- End Search Bar --}}
+                            {{-- Akhir Tabel --}}
                         </div>
+                        <!-- /. ROW  -->
                     </div>
-                    <!-- General elements -->
-                    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md bg-white">
-                        <label class="block text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">NIS</span>
-                            <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="NIS">
-                        </label>
-                        <br>
-                        <label class="block text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">NAMA</span>
-                            <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="Nama">
-                        </label>
-
-                        <label class="block mt-8">
-                            <span class="form-label text-gray-700 dark:text-gray-400">Kelas</span>
-                            <select class="form-select mt-1 block w-full">
-                                <option>Pilih</option>
-                                <option>Kelas 6</option>
-                                <option>Kelas 5</option>
-                                <option>Kelas 4</option>
-                            </select>
-                        </label>
-
-                        <br>
-                        <label class="block text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">Tanggal Pelanggaran</span>
-                            <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="DD-MM-YYYY">
-                        </label>
-
-                        <label class="block mt-8">
-                            <span class="form-label text-gray-700 dark:text-gray-400">Jenis Pelanggaran</span>
-                            <select class="form-select mt-1 block w-full">
-                                <option>Pilih</option>
-                                <option>Sakit</option>
-                                <option>Alpha</option>
-                                <option>Dispensasi</option>
-                                <option>Lain - Lain</option>
-                            </select>
-                        </label>
-
-                        <label class="block mt-4 text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">Keterangan Pelanggaran</span>
-                            <textarea
-                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                rows="3" placeholder="Keterangan"></textarea>
-                        </label>
-                        <br>
-                        <div>
-                            <button
-                                class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                                Simpan
-                            </button>
-                        </div>
-                    </div>
+                    <!-- /. PAGE INNER  -->
                 </div>
             </main>
         </div>

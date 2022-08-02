@@ -78,6 +78,7 @@ $mapel = "";
 
 <body class="bg-gray-100 font-family-karla flex">
 
+    {{-- Side Bar --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="#" class="text-white text-3xl font-semibold hover:text-gray-300">SekolahXYZ</a>
@@ -95,7 +96,8 @@ $mapel = "";
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dafextrakulikuler"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
@@ -112,7 +114,7 @@ $mapel = "";
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
             </a>
-            <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafrapot" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
@@ -122,6 +124,7 @@ $mapel = "";
             </a>
         </nav>
     </aside>
+    {{-- Akhir Side Bar --}}
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
@@ -144,15 +147,16 @@ $mapel = "";
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                {{-- Search Bar --}}
+
+                {{-- Header Kiri --}}
                 <div class="lg:flex justify-between items-center mb-6">
-                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Daftar Nilai Extrakulikuler : Futsal</p>
+                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Catatan Rapot : Bahasa Indonesia ( Kelas 6 )</p>
                     <div>
                         <div>
                             <div>
                                 <div class="flex items-left">
                                     <div class="mt-2">
-                                        <form action="dafextrakulikuler">
+                                        <form action="dafrapot">
                                             <button class="btn btn-circle btn-outline">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -166,7 +170,7 @@ $mapel = "";
                         </div>
                     </div>
                 </div>
-                {{-- End Search Bar --}}
+                {{-- Akhir Header Kiri --}}
 
                 {{-- Button Kanan --}}
                 <div class="lg:flex justify-between items-center mb-6">
@@ -178,15 +182,12 @@ $mapel = "";
                                     <div class="mt-2">
                                         <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
                                             <div class="flex items-center">
-                                                <button id="btnTambah"
+                                                <button
                                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">
                                                     <svg class="fill-current w-4 h-4 mr-2"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                                        <path
-                                                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z">
-                                                        </path>
-                                                    </svg>
-                                                    <span>Tambah Data</span>
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
+                                                    <span>Nilai UTS</span>
                                                 </button>
                                             </div>
                                             <div class="flex items-center">
@@ -195,7 +196,7 @@ $mapel = "";
                                                     <svg class="fill-current w-4 h-4 mr-2"
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
-                                                    <span>Download</span>
+                                                    <span>Nilai UAS</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -203,6 +204,7 @@ $mapel = "";
                                 </div>
                             </div>
                         </div>
+                        {{-- End Search Bar --}}
                     </div>
                 </div>
                 {{-- Akhir Button Kanan --}}
@@ -219,43 +221,40 @@ $mapel = "";
                                             class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400 bg-white"
                                             align="center">
                                             <tr>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Nama
-                                                    Extrakulikuler</th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Pembina</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Kelas</th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Ketua
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Mata Pelajaran
+                                                </th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Wali Kelas</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Konseling</th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Jumlah Murid
                                                 </th>
                                                 <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Jumlah Anggota
-                                                </th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
                                             </tr>
                                         </thead>
                                         <tbody align="center" class="bg-white">
-                                            <td class="px-4 py-2 whitespace-nowrap">Futsal</td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Pak Heru</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Kelas 6</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Ahmad</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Bahasa Indonesia</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Heru</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Budi</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">32</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap">29</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                         </tbody>
                                     </table>
@@ -265,48 +264,32 @@ $mapel = "";
                     </div>
                 </div>
                 {{-- Akhir Tabel Guru --}}
+                <br>
 
-                {{-- Search Bar --}}
-                <div class="mt-8">
-                    <div class="mt-4">
-                        <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
-                            <span>
-                                <h3>Nama/NIS</h3>
-                                <div class="flex items-left"><button class="text-gray-500 focus:outline-none lg:hidden">
-                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
-                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                        </svg></button>
-
-                                    <div class="relative mx-4 lg:mx-0"><span
-                                            class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
-                                            class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                            type="text" placeholder="Search">
-                                    </div>
-                                </div>
-                            </span>
-                            <span>
-                                <h3>Cari Kelas</h3>
-                                <div class="flex items-left"><button
-                                        class="text-gray-500 focus:outline-none lg:hidden"></button>
-
-                                    <div class="relative mx-4 lg:mx-0"><span
-                                            class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
-                                        <select
-                                            class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
-                                            <option>Search</option>
-                                            <option>Kelas 6</option>
-                                            <option>Kelas 5</option>
-                                            <option>Kelas 4</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </span>
+                {{-- Tabel Keterangan --}}
+                <div class="flex flex-wrap -mx-3">
+                    <div class="w-1/2 xl:w-1/3 px-3">
+                        <div class="w-full bg-white border text-blue-400 rounded-lg flex items-center p-6 mb-6 xl:mb-0">
+                            <div class="text-gray-700">
+                                <h2 style="color: #0038fd">Sikap Spiritual</h2>
+                                <p>1. Konsisten Menjalankan Agama Yang Dianut.</p>
+                                <p>2. Sikap Rendah Hati.</p>
+                                <p>3. Sikap Jujur Setiap Saat.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-1/2 xl:w-1/3 px-3">
+                        <div class="w-full bg-white border text-blue-400 rounded-lg flex items-center p-6 mb-6 xl:mb-0">
+                            <div class="text-gray-700">
+                                <h2 style="color: #0038fd">Sikap Sosial</h2>
+                                <p>1. Hormat Kepada Guru dan Tidak Membedakan - Bedakan Teman.</p>
+                                <p>2. Empati Terhadap Lingkungan.</p>
+                                <p>3. Toleransi Terhadap Sesama.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                {{-- End Search Bar --}}
+                {{-- Akhir Tabel Keterangan --}}
 
                 {{-- Isi Tabel --}}
                 <div class="flex flex-col mt-8">
@@ -318,32 +301,80 @@ $mapel = "";
                                     <tr>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                            Identitas</th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                            Kehadiran</th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                            Nilai Sikap</th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             No.</th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nama Murid</th>
+                                            Nama</th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             NIS</th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Kelas
+                                            Sakit
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Jabatan
+                                            Izin
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nilai
+                                            Tanpa Keterangan
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Catatan
+                                            Total
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Action</th>
+                                            1
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                            2
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                            3
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white">
@@ -364,11 +395,19 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Ketua
+                                            
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            0
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
@@ -376,15 +415,11 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
+                                            A
                                         </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
                                         </td>
                                     </tr>
                                     <tr>
@@ -404,11 +439,19 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
+                                            2
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Wakil Ketua
+                                            
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            2
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
@@ -416,15 +459,11 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
+                                            A
                                         </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
                                         </td>
                                     </tr>
                                     <tr>
@@ -444,27 +483,31 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
+                                            1
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
+                                            1
                                         </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
                                         </td>
                                     </tr>
                                     <tr>
@@ -472,7 +515,7 @@ $mapel = "";
                                             <div class="">
                                                 <div class="ml-2">
                                                     <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
+                                                        4.</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -484,27 +527,31 @@ $mapel = "";
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
+                                            
                                         </td>
                                         <td
                                             class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
+                                            0
                                         </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
+                                        </td>
+                                        <td
+                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
+                                            A
                                         </td>
                                     </tr>
                                 </tbody>
@@ -514,10 +561,8 @@ $mapel = "";
                     {{-- Akhir Isi Tabel --}}
                 </div>
                 <!-- Akhir Isi  -->
-                
             </main>
         </div>
-
     </div>
 
     <!-- AlpineJS -->
