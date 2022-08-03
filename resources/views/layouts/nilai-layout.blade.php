@@ -643,8 +643,9 @@ $mapel = "";
 
             function getNilai() {
                 $('#isiTable').html('');
-                $.ajax({
-                    url: 'http://127.0.0.1:8080/api/kelas6',
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kelas6',
                     method: 'get',
                     dataType: 'json',
                     data: {
@@ -695,8 +696,9 @@ $mapel = "";
             }
 
             function updateData(id) {
-                $.ajax({
-                    url: 'http://127.0.0.1:8080/api/kelas6/' + id,
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kelas6/' + id,
                     method: 'get',
                     dataType: 'json',
                     success: function (data) {
@@ -734,8 +736,9 @@ $mapel = "";
             });
 
             function postData(data) {
-                $.ajax({
-                    url: 'http://127.0.0.1:8080/api/kelas6',
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kelas6',
                     method: 'POST',
                     dataType: 'json',
                     data: data,
@@ -759,8 +762,9 @@ $mapel = "";
             }
 
             function putData(id, data) {
-                $.ajax({
-                    url: 'http://127.0.0.1:8080/api/kelas6/' + id,
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kelas6/' + id,
                     method: 'PUT',
                     dataType: 'json',
                     data: data,
@@ -791,8 +795,9 @@ $mapel = "";
             });
 
             function deleteNilai(id) {
-                $.ajax({
-                    url: 'http://127.0.0.1:8080/api/kelas6/' + id,
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kelas6/' + id,
                     method: 'DELETE',
                     dataType: 'json',
                     success: function (data) {
