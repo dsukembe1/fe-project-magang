@@ -35,7 +35,7 @@ use App\Http\Controllers\dafKelasController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landingpage');
 });
 
 // Dashboard

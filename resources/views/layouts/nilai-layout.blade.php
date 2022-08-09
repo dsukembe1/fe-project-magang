@@ -8,9 +8,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    {{-- AJAX --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
-    {{-- <script src="mainAjax.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
@@ -78,9 +75,10 @@ $mapel = "";
 
 <body class="bg-gray-100 font-family-karla flex">
 
+    {{-- Menu --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-        <div class="p-6">
-            <a href="#" class="text-white text-3xl font-semibold hover:text-gray-300">SekolahXYZ</a>
+        <div class="p-2">
+            <center><img width="90" src="img/sekolahxyz2.png"></center>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
             <a href="/dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
@@ -123,15 +121,19 @@ $mapel = "";
             </a>
         </nav>
     </aside>
+    {{-- Akhir Menu -}}
 
+    {{-- Logout --}}
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
         <header class="w-full items-center bg-white py-2 px-6 hidden sm:flex">
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none">
-                    Admin
+                <p class="mt-3 mr-1">Welcome,</p>
+                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
+                    {{ Auth::user()->name }}
                 </button>
+                <i class="fas fa-user-circle mt-4"></i>
                 <button x-show="isOpen" @click="isOpen = false"
                     class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
@@ -545,6 +547,7 @@ $mapel = "";
         </div>
 
     </div>
+    {{-- Akhir Logout --}}
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -632,6 +635,8 @@ $mapel = "";
             }
         });
     </script>
+
+    {{-- Connect API --}}
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -809,6 +814,7 @@ $mapel = "";
 
         });
     </script>
-</body>
+    {{-- Akhir Connect API --}}
 
+</body>
 </html>

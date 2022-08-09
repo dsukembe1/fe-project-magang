@@ -1,13 +1,13 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+            <center><img width="100" src="img/sekolahxyz.png" alt="" class=""></center>
         </x-slot>
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
+
+        <h1 class="text-4xl font-medium" align="center">Reset Password</h1><br/>
 
         <form method="POST" action="{{ route('password.update') }}">
             @csrf
@@ -23,7 +23,7 @@
             </div>
 
             <!-- Password -->
-            <div class="mt-4">
+            <div class="mt-4"> 
                 <x-label for="password" :value="__('Password')" />
 
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required />
