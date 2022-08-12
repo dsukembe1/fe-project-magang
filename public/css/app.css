@@ -1455,3 +1455,9 @@ select {
   }
 }
 
+.ellipsis {
+  max-width: 40px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

@@ -22,7 +22,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- <script src="{{ asset('mainAjax.js') }}" defer></script> --}}
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
@@ -81,7 +80,7 @@ $mapel = "";
             <center><img width="90" src="img/sekolahxyz2.png"></center>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="/dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
@@ -145,9 +144,9 @@ $mapel = "";
             </div>
         </header>
 
-        {{-- Search Bar --}}
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
+                {{-- Search Bar --}}
                 <div class="lg:flex justify-between items-center mb-6">
                     <p class="text-2xl font-semibold mb-2 lg:mb-0">Daftar Nilai : Bahasa Indonesia - Kelas 6</p>
                     <div>
@@ -309,9 +308,9 @@ $mapel = "";
 
                 <div id="page-wrapper">
                     <div id="w-full max-w-xs">
-                        <!-- /. ROW  -->
                         <!-- Isi -->
                         <br>
+                        <!-- Tambah Data -->
                         <form id="tabelTambah" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                             <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data</h2><br>
                             <div class="mb-4">
@@ -402,6 +401,7 @@ $mapel = "";
                             <button id="submitData" type="submit"
                                 class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">Tambah</button>
                         </form>
+                        <!-- Akhir Tambah Data -->
 
                         <!-- Update Data -->
                         <div id="updateDataDiv">
@@ -539,7 +539,6 @@ $mapel = "";
                                 </div>
                             </div>
                         </div>
-                        <!-- /. ROW  -->
                     </div>
                     <!-- /. PAGE INNER  -->
                 </div>

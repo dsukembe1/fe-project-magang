@@ -81,7 +81,7 @@ $mapel = "";
             <center><img width="90" src="img/sekolahxyz2.png"></center>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="/dashboard" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dashboard" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
@@ -134,9 +134,6 @@ $mapel = "";
                 <button x-show="isOpen" @click="isOpen = false"
                     class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    {{-- <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
-                    <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a> --}}
-                    {{-- <a href="#" class="block px-4 py-2 account-link hover:text-white">Sign Out</a> --}}
                     <form action="{{ route('logout') }}" method="POST">
                         @csrf
                         <button type="submit" class=""><i class="fas fa-sign-out-alt fa-fw"></i> Logout</button>
