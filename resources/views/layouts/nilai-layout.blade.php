@@ -65,6 +65,14 @@
         #updateData {
             display: none;
         }
+
+        #submitData {
+            float: right;
+        }
+
+        #btnUpdateData{
+            float: right;
+        }
     </style>
 
 </head>
@@ -397,9 +405,10 @@ $mapel = "";
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="na" placeholder="NILAI AKHIR">
                                 </div>
+                                <br>
+                                    <button id="submitData"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
                             </div>
-                            <button id="submitData" type="submit"
-                                class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">Tambah</button>
                         </form>
                         <!-- Akhir Tambah Data -->
 
@@ -502,9 +511,10 @@ $mapel = "";
                                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                             id="updateNa" placeholder="NILAI AKHIR">
                                     </div>
+                                    <br>
+                                    <button id="btnUpdateData"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Update</button>
                                 </div>
-                                <button id="btnUpdateData" type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">UPDATE</button>
                             </form>
                         </div>
 

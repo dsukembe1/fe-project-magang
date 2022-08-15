@@ -85,6 +85,18 @@
         textarea:disabled {
             background: #dddddd;
         }
+
+        #submitData {
+            float: right;
+        }
+
+        #btnUpdateKurikulum{
+            float: right;
+        }
+
+        #btnCloseKurikulum{
+            float: right;
+        }
     </style>
 
 </head>
@@ -274,10 +286,10 @@ $sm = "";
                                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                 rows="3" id="desk_ringkasan" placeholder="Deskripsi Ringkasan"></textarea>
                         </div>
+                        <br>
+                        <button id="submitData"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
                     </div>
-
-                    <button id="submitData" type="submit"
-                        class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">Tambah</button>
                 </form>
                 <!-- Akhir Tambah Data -->
 
@@ -475,10 +487,10 @@ $sm = "";
                                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                 rows="3" id="updateDesk_ringkasan" placeholder="Deskripsi Ringkasan"></textarea>
                             </div>
+                            <br>
+                            <button id="btnUpdateKurikulum"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Update</button>
                         </div>
-
-                        <button id="btnUpdateKurikulum" type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">UPDATE</button>
                     </form>
                 </div>
                 <!-- Akhir Update Data -->
@@ -538,9 +550,10 @@ $sm = "";
                                 class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
                                 rows="3" id="tampilDesk_ringkasan" placeholder="Deskripsi Ringkasan" disabled="disabled"></textarea>
                             </div>
+                            <br>
+                            <button id="btnCloseKurikulum"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Close</button>
                         </div>
-                        <button id="btnCloseKurikulum" type="submit"
-                            class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 border border-blue-700 rounded">Close</button>
                     </form>
                 </div>
                 <!-- Akhir Tampil Data -->
