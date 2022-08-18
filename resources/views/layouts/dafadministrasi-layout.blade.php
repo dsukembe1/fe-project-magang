@@ -66,14 +66,24 @@
             display: none;
         }
 
-        #updateData {
+        #updatePengumuman {
             display: none;
+        }
+
+        #btnPengumuman{
+            float: right;
+            margin-bottom: 2%;
+        }
+
+        #btnUpdatePengumuman{
+            float: right;
+            margin-bottom: 2%;
         }
     </style>
 
 </head>
 <?php
-$mapel = "";
+$kl = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -129,7 +139,8 @@ $mapel = "";
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <p class="mt-3 mr-1">Welcome,</p>
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
+                <button @click="isOpen = !isOpen"
+                    class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
                     {{ Auth::user()->name }}
                 </button>
                 <i class="fas fa-user-circle mt-4"></i>
@@ -149,38 +160,40 @@ $mapel = "";
                 <h1 class="text-3xl text-black">Administrasi</h1>
                 <h5>Tahun Ajaran : 20xx/20xx Semester x</h5>
 
-                    {{-- Button Kanan --}}
-                    <div class="lg:flex items-center mb-6">
-                        <p class="text-2xl font-semibold mb-2 lg:mb-0"></p>
+                {{-- Button Kanan --}}
+                <div class="lg:flex items-center mb-6">
+                    <p class="text-2xl font-semibold mb-2 lg:mb-0"></p>
+                    <div>
                         <div>
                             <div>
-                                <div>
-                                    <div class="flex items-right">
-                                        <div class="mt-2">
-                                            <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
-                                                <div class="flex items-center">
-                                                        <div class="flex ml-2 mb-5 space-x-4 overflow-x-auto bg-white rounded-md">
-                                                            <span>
-                                                                <h3>Cari Pengumuman</h3>
-                                                                <div class="flex items-left"><button
-                                                                        class="text-gray-500 focus:outline-none lg:hidden">
-                                                                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
-                                                                            xmlns="http://www.w3.org/2000/svg">
-                                                                            <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
-                                                                                stroke-linecap="round" stroke-linejoin="round"></path>
-                                                                        </svg></button>
-                            
-                                                                    <div class="relative mx-4 lg:mx-0"><span
-                                                                            class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
-                                                                            class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                                                            type="text" placeholder="Search">
-                                                                    </div>
-                                                                </div>
-                                                            </span>
-                                                        </div>
+                                <div class="flex items-right">
+                                    <div class="mt-2">
+                                        <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
+                                            <div class="flex items-center">
+                                                <div
+                                                    class="flex ml-2 mb-5 space-x-4 overflow-x-auto bg-white rounded-md">
                                                     <span>
-                                                        <form action="pengumuman">
-                                                            <button id="btnTambah"
+                                                        <h3>Cari Pengumuman</h3>
+                                                        <div class="flex items-left"><button
+                                                                class="text-gray-500 focus:outline-none lg:hidden">
+                                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
+                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M4 6H20M4 12H20M4 18H11"
+                                                                        stroke="currentColor" stroke-width="2"
+                                                                        stroke-linecap="round" stroke-linejoin="round">
+                                                                    </path>
+                                                                </svg></button>
+
+                                                            <div class="relative mx-4 lg:mx-0"><span
+                                                                    class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
+                                                                    class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                                                    type="text" placeholder="Search">
+                                                            </div>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <span>
+                                                        <button id="btnTambah"
                                                             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded ml-4 mt-1">
                                                             <svg class="fill-current w-4 h-4 mr-2"
                                                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
@@ -190,46 +203,201 @@ $mapel = "";
                                                             </svg>
                                                             <span>Tambah Pengumuman</span>
                                                         </button>
-                                                        </form>
-                                                    </span>
-                                                </div>
-                                                
+                                                </span>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- Akhir Button Kanan --}}
+                </div>
+                {{-- Akhir Button Kanan --}}
 
+                {{-- Tambah Data --}}
+                <form id="tabelTambah">
+                    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md bg-white">
+                        <label for="judul" class="block text-sm">
+                            <label for="judul"
+                                class="block text-gray-700 text-sm font-bold mb-2">Judul Pengumuman</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="judul" placeholder="Judul">
+                            </div>
+                        </label>
+
+                        <div class="mb-4">
+                            <label for="tanggal"
+                                class="block text-gray-700 text-sm font-bold mb-2">Tanggal Pelaksanaan</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="tanggal" placeholder="Tanggal - Bulan - Tahun">
+                            </div>
+                        </div>
+                        
+                        <label for="isi" class="block mt-4 text-sm">
+                            <span class="text-gray-700 dark:text-gray-400">Isi Pengumuman</span>
+                            <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                id="isi" rows="3" placeholder="Isi Pengumuman"></textarea>
+                        </label>
+
+                        <div class="mb-4">
+                            <span class="text-gray-700 dark:text-gray-400">
+                                Tujuan Pengumuman
+                            </span>
+                            <div class="col-sm-10">
+                                <select
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    name="tujuan" id="tujuan">
+                                    <option value="">- Pilih -</option>
+                                    <option value="Seluruh Warga Sekolah" <?php if ($kl == "Seluruh Warga Sekolah") echo "selected" ?>>Seluruh Warga Sekolah
+                                    </option>
+                                    <option value="Seluruh Guru" <?php if ($kl == "Seluruh Guru") echo "selected" ?>>Seluruh Guru
+                                    </option>
+                                    <option value="Seluruh Siswa - Siswi" <?php if ($kl == "Seluruh Siswa - Siswi") echo "selected" ?>>Seluruh Siswa - Siswi
+                                    </option>
+                                    <option value="Extrakulikuler" <?php if ($kl == "Extrakulikuler") echo "selected" ?>>Extrakulikuler
+                                    </option>
+                                    <option value="Orang Tua Murid" <?php if ($kl == "Orang Tua Murid") echo "selected" ?>>Orang Tua Murid
+                                    </option>
+                                    <option value="Umum" <?php if ($kl == "Umum") echo "selected" ?>>Umum
+                                    </option>
+                                </select>
+                            </div>
+                            <br>
+                            <button id="btnPengumuman"
+                                class="mb-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Simpan
+                            </button>
+                            <br>
+                        </div>
+                    </div>
+                </form>
+                {{-- Akhir Tambah Data --}}
+
+                <!-- Update Data -->
+                    <form id="updatePengumuman">
+                        <h2 class="intro-y text-lg font-medium mr-auto mt-2">Update Pengumuman</h2>
+                        <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md bg-white">
+                            <div class="mb-4">
+                                <div class="col-sm-10">
+                                    <input type="hidden"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="id">
+                                </div>
+                            </div>
+                            <label for="updateJudul" class="block text-sm">
+                                <label for="judul"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Judul Pengumuman</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateJudul" placeholder="Judul">
+                                </div>
+                            </label>
+
+                            <div class="mb-4">
+                                <label for="updateTanggal"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Tanggal</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateTanggal" placeholder="Tanggal - Bulan - Tahun">
+                                </div>
+                            </div>
+    
+                            <label for="updateIsi" class="block mt-4 text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Isi Pengumuman</span>
+                                <textarea
+                                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                    id="updateIsi" rows="3" placeholder="Isi Pengumuman"></textarea>
+                            </label>
+    
+                            <div class="mb-4">
+                                <span for="updateTujuan" class="text-gray-700 dark:text-gray-400">
+                                    Tujuan Pengumuman
+                                </span>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="updateTujuan" id="updateTujuan">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Seluruh Warga Sekolah" <?php if ($kl == "Seluruh Warga Sekolah") echo "selected" ?>>Seluruh Warga Sekolah
+                                        </option>
+                                        <option value="Seluruh Guru" <?php if ($kl == "Seluruh Guru") echo "selected" ?>>Seluruh Guru
+                                        </option>
+                                        <option value="Seluruh Siswa - Siswi" <?php if ($kl == "Seluruh Siswa - Siswi") echo "selected" ?>>Seluruh Siswa - Siswi
+                                        </option>
+                                        <option value="Extrakulikuler" <?php if ($kl == "Extrakulikuler") echo "selected" ?>>Extrakulikuler
+                                        </option>
+                                        <option value="Orang Tua Murid" <?php if ($kl == "Orang Tua Murid") echo "selected" ?>>Orang Tua Murid
+                                        </option>
+                                        <option value="Umum" <?php if ($kl == "Umum") echo "selected" ?>>Umum
+                                        </option>
+                                    </select>
+                                </div>
+                                <br>
+                                <button id="btnUpdatePengumuman"
+                                    class="mb-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Simpan
+                                </button>
+                                <br>
+                            </div>
+                        </div>
+                    </form>
+                <!-- Akhir Update Data -->
+
+                {{-- Tampil Data --}}
                 <div class="container mx-auto px-3 py-4">
                     <div>
                         <div>
                             <h2>Pengumuman</h2>
-                            <div class="w-full max-w-sm mt-6 lg:max-w-full lg:flex">
-                                <div class="flex-none h-48 overflow-hidden text-center bg-cover rounded-t lg:h-auto lg:w-48 lg:rounded-t-none lg:rounded-l"
-                                    style="background-image:url('https://padiumkm.id/public/products/11043/572586/dua-futsal1.1646119622.png');"
-                                    title="Woman holding a mug"></div>
-                                <div
-                                    class="flex flex-col justify-between p-4 leading-normal bg-white border-b border-l border-r border-gray-200 rounded-b lg:border-l-0 lg:border-t lg:border-gray-200 lg:rounded-b-none lg:rounded-r">
-                                    <div class="mb-8">
-                                        <p class="flex items-center text-sm text-gray-600">
-                                            <div class="mb-2 text-xl font-bold text-gray-900"> Pengumuman Perlombaan
-                                                Futsal</div>
-                                            <p class="text-base text-gray-700"> Perlombaan Futsal Antar Kelas Akan
-                                                Dilaksankan Pada 1 - 8 Agustus 20xx. Persiapkan Team Anda Untuk
-                                                Mengikuti Perlombaan Ini.
-                                                Hadiah Berupa Uang Tunai. </p>
+                            <!-- Tabel Data -->
+                            <div id="page-wrapper">
+                                <div id="w-full max-w-xs">
+                                    <!-- /. ROW  -->
+                                    <!-- Isi -->
+                                    <br>
+                                    <div id="page-wrapper">
+                                        <div id="w-full max-w-xs">
+                                            <div class="flex flex-col">
+                                                <div
+                                                    class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                                    <div
+                                                        class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                                                        <table id="tabelPengumuman"
+                                                            class="w-full text-sm text-left text-black-500 dark:text-black-400">
+                                                            <thead
+                                                                class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400">
+                                                                <tr>
+                                                                    <th scope="col" class="py-3 px-6">JUDUL PENGUMUMAN</th>
+                                                                    <th scope="col" class="py-3 px-6">TANGGAL PELAKSANAAN</th>
+                                                                    <th scope="col" class="py-3 px-6">ISI PENGUMUMAN</th>
+                                                                    <th scope="col" class="py-3 px-6">TUJUAN PENGUMUMAN</th>
+                                                                    <th scope="col" class="py-3 px-6">ACTION</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="isiPengumuman" class="bg-white">
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <!-- /. ROW  -->
                                 </div>
+                                <!-- /. PAGE INNER  -->
                             </div>
+                            <!-- Akhir Tabel Data -->
                         </div>
                     </div>
                 </div>
+                {{-- Akhir Tampil Data --}}
             </main>
         </div>
-
     </div>
 
     <!-- AlpineJS -->
@@ -315,6 +483,148 @@ $mapel = "";
                         }
                     }]
                 }
+            }
+        });
+    </script>
+
+    {{-- Connect API --}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            getPengumuman();
+
+            $("#btnTambah").on("click", function (e) {
+                $("#tabelTambah").toggle();
+            });
+    
+            function getPengumuman() {
+                $('#isiPengumuman').html('');
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        test: 'test data'
+                    },
+                    success: function (data) {
+                        $(data).each(function (i, pengumuman) {
+                            $('#isiPengumuman').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(pengumuman.judul))
+                                    .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(pengumuman.tanggal))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(pengumuman.isi))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(pengumuman.tujuan))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
+                                ).append(`
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditPengumuman" data-tutid="` 
+                                    + pengumuman.id +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeletePengumuman" data-tutid="` 
+                                    + pengumuman.id +`">Delete</button>
+                                    `)));
+                        });
+                        loadButtonss();
+                    }
+                })
+            }
+    
+            function updatePengumuman(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#updatePengumuman")[0].id).val(data.id);
+                        $($("#updatePengumuman")[0].updateJudul).val(data.judul);
+                        $($("#updatePengumuman")[0].updateTanggal).val(data.tanggal);
+                        $($("#updatePengumuman")[0].updateIsi).val(data.isi);
+                        $($("#updatePengumuman")[0].updateTujuan).val(data.tujuan);
+                        $("#updatePengumuman").show();
+                    }
+                });
+            }
+    
+            $("#btnPengumuman").on("click", function (e) {
+                let data = {
+                    judul: $($("#tabelTambah")[0].judul).val(),
+                    tanggal: $($("#tabelTambah")[0].tanggal).val(),
+                    tujuan: $($("#tabelTambah")[0].tujuan).val(),
+                    isi: $($("#tabelTambah")[0].isi).val()
+                }
+    
+                postData(data);
+                $("#tabelTambah").trigger("reset");
+                $("#tabelTambah").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function postData(data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();;
+                    }
+                });
+            }
+    
+            function loadButtonss() {
+                $(".btneditPengumuman").click(function (e) {
+                    updatePengumuman($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+    
+                $(".btndeletePengumuman").click(function (e) {
+                    deletePengumuman($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                })
+            }
+    
+            function putData(id, data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();
+                    }
+                });
+            }
+    
+            $("#btnUpdatePengumuman").on("click", function (e) {
+                let data = {
+                    judul: $($("#updatePengumuman")[0].updateJudul).val(),
+                    tanggal: $($("#updatePengumuman")[0].updateTanggal).val(),
+                    isi: $($("#updatePengumuman")[0].updateIsi).val(),
+                    tujuan: $($("#updatePengumuman")[0].updateTujuan).val()
+                }
+    
+                putData($($("#updatePengumuman")[0].id).val(), data);
+                $("#updatePengumuman").trigger("reset");
+                $("#updatePengumuman").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function deletePengumuman(id) {
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();
+                    }
+                });
             }
         });
     </script>

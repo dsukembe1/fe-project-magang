@@ -66,18 +66,29 @@
             display: none;
         }
 
-        #updateData {
+        #updateRapot {
             display: none;
+        }
+
+        #submitData{
+            float: right;
+            margin-bottom: 2%;
+        }
+
+        #btnUpdateRapot{
+            float: right;
+            margin-bottom: 2%;
         }
     </style>
 
 </head>
 <?php
-$mapel = "";
+$s1 = "";
+$s2 = "";
+$s3 = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
-
     {{-- Side Bar --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-2">
@@ -184,12 +195,15 @@ $mapel = "";
                                     <div class="mt-2">
                                         <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
                                             <div class="flex items-center">
-                                                <button
+                                                <button id="btnTambah"
                                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">
                                                     <svg class="fill-current w-4 h-4 mr-2"
-                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
-                                                    <span>Nilai UTS</span>
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z">
+                                                        </path>
+                                                    </svg>
+                                                    <span>Tambah Data</span>
                                                 </button>
                                             </div>
                                             <div class="flex items-center">
@@ -198,7 +212,7 @@ $mapel = "";
                                                     <svg class="fill-current w-4 h-4 mr-2"
                                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                                         <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
-                                                    <span>Nilai UAS</span>
+                                                    <span>Nilai</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -210,6 +224,148 @@ $mapel = "";
                     </div>
                 </div>
                 {{-- Akhir Button Kanan --}}
+
+                <!-- Tambah Data -->
+                <form id="tabelTambah" class="mt-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Rapot</h2><br>
+                    <div class="mb-4">
+                        <label for="nama"
+                            class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="nama" placeholder="Nama">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="nis"
+                            class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="nis" placeholder="NIS">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="sakit"
+                            class="block text-gray-700 text-sm font-bold mb-2">Sakit</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="sakit" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="izin"
+                            class="block text-gray-700 text-sm font-bold mb-2">Izin</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="izin" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="alpha"
+                            class="block text-gray-700 text-sm font-bold mb-2">Alpha</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="alpha" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="total"
+                            class="block text-gray-700 text-sm font-bold mb-2">Total</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="total" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="ns1" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 1</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="ns1" id="ns1">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s1 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s1 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s1 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s1 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s1 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s1 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="ns2" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 2</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="ns2" id="ns2">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s2 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s2 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s2 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s2 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s2 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s2 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="ns3" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 3</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="ns3" id="ns3">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s3 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s3 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s3 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s3 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s3 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s3 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="submitData"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
+                    <br>
+                </form>
+                <!-- Akhir Tambah Data -->
 
                 {{-- Tabel Guru --}}
                 <div id="page-wrapper">
@@ -293,21 +449,166 @@ $mapel = "";
                 </div>
                 {{-- Akhir Tabel Keterangan --}}
 
+                <!-- Update Data -->
+                <form id="updateRapot" class="mt-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Rapot</h2><br>
+                    <div class="mb-4">
+                        <div class="col-sm-10">
+                            <input type="hidden"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="id">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="updateNama"
+                            class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateNama" placeholder="Nama">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateNis"
+                            class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateNis" placeholder="NIS">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateSakit"
+                            class="block text-gray-700 text-sm font-bold mb-2">Sakit</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateSakit" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateIzin"
+                            class="block text-gray-700 text-sm font-bold mb-2">Izin</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateIzin" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateAlpha"
+                            class="block text-gray-700 text-sm font-bold mb-2">Alpha</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateAlpha" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateTotal"
+                            class="block text-gray-700 text-sm font-bold mb-2">Total</label>
+                            <span><small>*Tidak Boleh Kosong</small></span>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="updateTotal" placeholder="0 / Total Hari">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateNs1" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 1</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="updateNs1" id="updateNs1">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s1 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s1 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s1 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s1 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s1 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s1 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateNs2" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 2</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="updateNs2" id="updateNs2">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s2 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s2 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s2 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s2 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s2 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s2 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="updateNs3" class="block text-gray-700 text-sm font-bold mb-2">Nilai Sikap 3</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="updateNs3" id="updateNs3">
+                                <option value="">- Pilih -</option>
+                                <option value="A" <?php if ($s3 == "A") echo "selected" ?>>A
+                                </option>
+                                <option value="AB" <?php if ($s3 == "AB") echo "selected" ?>>AB
+                                </option>
+                                <option value="B" <?php if ($s3 == "B") echo "selected" ?>>B
+                                </option>
+                                <option value="BC" <?php if ($s3 == "BC") echo "selected" ?>>BC
+                                </option>
+                                <option value="C" <?php if ($s3 == "C") echo "selected" ?>>C
+                                </option>
+                                <option value="D" <?php if ($s3 == "D") echo "selected" ?>>D
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button id="btnUpdateRapot"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Simpan</button>
+                    <br>
+                </form>
+                <!-- Akhir Update Data -->
+
                 {{-- Isi Tabel --}}
                 <div class="flex flex-col mt-8">
                     <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                         <div
                             class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                            <table class="min-w-full">
+                            <table id="tabelRapot" class="min-w-full">
                                 <thead>
                                     <tr>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             Identitas</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-
-                                        </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
 
@@ -336,13 +637,13 @@ $mapel = "";
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-
+                                        </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                        Action
                                         </th>
                                     </tr>
                                     <tr>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            No.</th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             Nama</th>
@@ -359,7 +660,7 @@ $mapel = "";
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Tanpa Keterangan
+                                            Alpha
                                         </th>
                                         <th
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
@@ -377,191 +678,20 @@ $mapel = "";
                                             class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                             3
                                         </th>
+                                        <th
+                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                                        </th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white">
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        1.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Ahmad</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99901</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            0
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        2.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dandi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99902</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            2
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            2
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dika</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99903</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            1
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            1
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        4.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Andi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99904</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            0
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                    </tr>
+                                <tbody id="isiRapot" class="bg-white">
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     {{-- Akhir Isi Tabel --}}
                 </div>
+                {{-- Akhir Isi Tabel --}}
+
                 <!-- Akhir Isi  -->
             </main>
         </div>
@@ -653,6 +783,167 @@ $mapel = "";
             }
         });
     </script>
-</body>
 
+    {{-- Connect API --}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            getRapot();
+
+            $("#btnTambah").on("click", function (e) {
+                $("#tabelTambah").toggle();
+            });
+    
+            function getRapot() {
+                $('#isiRapot').html('');
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/rapot',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        test: 'test data'
+                    },
+                    success: function (data) {
+                        $(data).each(function (i, rapot) {
+                            $('#isiRapot').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(rapot.nama))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.nis))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.sakit))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(rapot.izin))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.alpha))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.total))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(rapot.ns1))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.ns2))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(rapot.ns3))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
+                                ).append(`
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditRapot" data-tutid="` 
+                                    + rapot.id +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteRapot" data-tutid="` 
+                                    + rapot.id +`">Delete</button>
+                                    `)));
+                        });
+                        loadButtonss();
+                    }
+                })
+            }
+    
+            function updateRapot(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/rapot/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#updateRapot")[0].id).val(data.id);
+                        $($("#updateRapot")[0].updateNama).val(data.nama);
+                        $($("#updateRapot")[0].updateNis).val(data.nis);
+                        $($("#updateRapot")[0].updateSakit).val(data.sakit);
+                        $($("#updateRapot")[0].updateIzin).val(data.izin);
+                        $($("#updateRapot")[0].updateAlpha).val(data.alpha);
+                        $($("#updateRapot")[0].updateTotal).val(data.total);
+                        $($("#updateRapot")[0].updateNs1).val(data.ns1);
+                        $($("#updateRapot")[0].updateNs2).val(data.ns2);
+                        $($("#updateRapot")[0].updateNs3).val(data.ns3);
+                        $("#updateRapot").show();
+                    }
+                });
+            }
+    
+            $("#submitData").on("click", function (e) {
+                let data = {
+                    nama: $($("#tabelTambah")[0].nama).val(),
+                    nis: $($("#tabelTambah")[0].nis).val(),
+                    sakit: $($("#tabelTambah")[0].sakit).val(),
+                    izin: $($("#tabelTambah")[0].izin).val(),
+                    alpha: $($("#tabelTambah")[0].alpha).val(),
+                    total: $($("#tabelTambah")[0].total).val(),
+                    ns1: $($("#tabelTambah")[0].ns1).val(),
+                    ns2: $($("#tabelTambah")[0].ns2).val(),
+                    ns3: $($("#tabelTambah")[0].ns3).val()
+                }
+    
+                postData(data);
+                $("#tabelTambah").trigger("reset");
+                $("#tabelTambah").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function postData(data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/rapot',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getRapot();;
+                    }
+                });
+            }
+    
+            function loadButtonss() {
+                $(".btneditRapot").click(function (e) {
+                    updateRapot($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+    
+                $(".btndeleteRapot").click(function (e) {
+                    deleteRapot($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                })
+            }
+    
+            function putData(id, data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/rapot/' + id,
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getRapot();
+                    }
+                });
+            }
+    
+            $("#btnUpdateRapot").on("click", function (e) {
+                let data = {
+                    nama: $($("#updateRapot")[0].updateNama).val(),
+                    nis: $($("#updateRapot")[0].updateNis).val(),
+                    sakit: $($("#updateRapot")[0].updateSakit).val(),
+                    izin: $($("#updateRapot")[0].updateIzin).val(),
+                    alpha: $($("#updateRapot")[0].updateAlpha).val(),
+                    total: $($("#updateRapot")[0].updateTotal).val(),
+                    ns1: $($("#updateRapot")[0].updateNs1).val(),
+                    ns2: $($("#updateRapot")[0].updateNs2).val(),
+                    ns3: $($("#updateRapot")[0].updateNs3).val()
+                }
+    
+                putData($($("#updateRapot")[0].id).val(), data);
+                $("#updateRapot").trigger("reset");
+                $("#updateRapot").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function deleteRapot(id) {
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/rapot/' + id,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        getRapot();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
 </html>

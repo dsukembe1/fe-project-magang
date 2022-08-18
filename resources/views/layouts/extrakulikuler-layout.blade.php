@@ -66,14 +66,23 @@
             display: none;
         }
 
-        #updateData {
+        #updateExtrakulikuler {
             display: none;
+        }
+
+        #submitData {
+            float: right;
+        }
+
+        #btnUpdateExtrakulikuler{
+            float: right;
         }
     </style>
 
 </head>
 <?php
-$mapel = "";
+$kl = "";
+$jb = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -209,6 +218,76 @@ $mapel = "";
                 </div>
                 {{-- Akhir Button Kanan --}}
 
+                <!-- Tambah Data -->
+                <form id="tabelTambah" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Extrakulikuler</h2><br>
+                    <div class="mb-4">
+                        <label for="nama" class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="nama" placeholder="Nama">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="nis" class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="nis" placeholder="NIS">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="kelas" class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
+                        <div class="col-sm-10">
+                            <select
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                name="kelas" id="kelas">
+                                <option value="">- Pilih -</option>
+                                <option value="Kelas 4" <?php if ($kl == "Kelas 4") echo "selected" ?>>Kelas 4
+                                </option>
+                                <option value="Kelas 5" <?php if ($kl == "Kelas 5") echo "selected" ?>>Kelas 5
+                                </option>
+                                <option value="Kelas 6" <?php if ($kl == "Kelas 6") echo "selected" ?>>Kelas 6
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="jabatan" class="block text-gray-700 text-sm font-bold mb-2">Jabatan</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="jabatan" placeholder="Jabatan">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="nilai" class="block text-gray-700 text-sm font-bold mb-2">Nilai</label>
+                        <div class="col-sm-10">
+                            <input type="text"
+                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                id="nilai" placeholder="Nilai">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="catatan" class="block text-gray-700 text-sm font-bold mb-2">Catatan</label>
+                        <div class="col-sm-10">
+                            <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="catatan" placeholder="Catatan"></textarea>
+                        </div>
+                        <br>
+                        <button id="submitData"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
+                    </div>
+                </form>
+                <!-- Akhir Tambah Data -->
+
                 {{-- Tabel Guru --}}
                 <div id="page-wrapper">
                     <div id="w-full max-w-xs">
@@ -310,213 +389,132 @@ $mapel = "";
                 </div>
                 {{-- End Search Bar --}}
 
-                {{-- Isi Tabel --}}
-                <div class="flex flex-col mt-8">
-                    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                        <div
-                            class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                            <table class="min-w-full">
-                                <thead>
-                                    <tr>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            No.</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nama Murid</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            NIS</th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Kelas
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Jabatan
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Nilai
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Catatan
-                                        </th>
-                                        <th
-                                            class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                            Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white">
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        1.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Ahmad</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99901</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Ketua
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        2.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dandi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99902</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 6
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Wakil Ketua
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            A
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Sangat Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Dika</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99903</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="">
-                                                <div class="ml-2">
-                                                    <div class="text-sm font-medium leading-5 text-gray-900">
-                                                        3.</div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">Andi</div>
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <div class="text-sm leading-5 text-gray-900">99904</div>
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Kelas 5
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Anggota
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            B
-                                        </td>
-                                        <td
-                                            class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                            Aktif
-                                        </td>
-                                        <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                            <form action="#">
-                                                <button
-                                                    class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditNilai">Edit</button>
-                                                <button
-                                                    class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteNilai">Delete</button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                <!-- Update Data -->
+                <div id="updateDataDiv">
+                    <form id="updateExtrakulikuler" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <h2 class="intro-y text-lg font-medium mr-auto mt-2">Update Data Extrakulikuler</h2>
+                        <div class="mb-4">
+                            <div class="col-sm-10">
+                                <input type="hidden"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="id">
+                            </div>
                         </div>
-                    </div>
-                    {{-- Akhir Isi Tabel --}}
+
+                        <div class="mb-4">
+                            <label for="updateNama"
+                                class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="updateNama" placeholder="Nama">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateNis"
+                                class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="updateNis" placeholder="NIS">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateKelas"
+                                class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
+                            <div class="col-sm-10">
+                                <select
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    name="updateKelas" id="updateKelas">
+                                    <option value="">- Pilih -</option>
+                                    <option value="Kelas 4" <?php if ($kl == "Kelas 4") echo "selected" ?>>Kelas 4
+                                    </option>
+                                    <option value="Kelas 5" <?php if ($kl == "Kelas 5") echo "selected" ?>>Kelas 5
+                                    </option>
+                                    <option value="Kelas 6" <?php if ($kl == "Kelas 6") echo "selected" ?>>Kelas 6
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateJabatan"
+                                class="block text-gray-700 text-sm font-bold mb-2">Jabatan</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="updateJabatan" placeholder="Jabatan">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateNilai"
+                                class="block text-gray-700 text-sm font-bold mb-2">Nilai</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="updateNilai" placeholder="Nilai">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateCatatan" class="block text-gray-700 text-sm font-bold mb-2">Catatan</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="updateCatatan" placeholder="Catatan"></textarea>
+                            </div>
+                            <br>
+                            <button id="btnUpdateExtrakulikuler"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Update</button>
+                        </div>
+                    </form>
                 </div>
+                <!-- Akhir Update Data -->
+
+                <!-- Tabel Data -->
+                <div id="page-wrapper">
+                    <div id="w-full max-w-xs">
+                        <!-- /. ROW  -->
+                        <!-- Isi -->
+                        <br>
+                        <div id="page-wrapper">
+                            <div id="w-full max-w-xs">
+                                <div class="flex flex-col">
+                                    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                        <div
+                                            class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                                            <table id="tabelExtrakulikuler"
+                                                class="w-full text-sm text-left text-black-500 dark:text-black-400">
+                                                <thead
+                                                    class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400">
+                                                    <tr>
+                                                        <th scope="col" class="py-3 px-6">NAMA</th>
+                                                        <th scope="col" class="py-3 px-6">NIS</th>
+                                                        <th scope="col" class="py-3 px-6">KELAS</th>
+                                                        <th scope="col" class="py-3 px-6">JABATAN</th>
+                                                        <th scope="col" class="py-3 px-6">NILAI</th>
+                                                        <th scope="col" class="py-3 px-6">CATATAN</th>
+                                                        <th scope="col" class="py-3 px-6">ACTION</th>
+                                                    </tr>
+                                                </thead>
+                                                    <tbody id="isiExtrakulikuler" class="bg-white">
+                                                    </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /. ROW  -->
+                    </div>
+                    <!-- /. PAGE INNER  -->
+                </div>
+                <!-- Akhir Tabel Data -->
+
                 <!-- Akhir Isi  -->
-                
             </main>
         </div>
 
@@ -606,6 +604,157 @@ $mapel = "";
                     }]
                 }
             }
+        });
+    </script>
+
+    {{-- Connect API --}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            getExtrakulikuler();
+    
+            $("#btnTambah").on("click", function (e) {
+                $("#tabelTambah").toggle();
+            });
+    
+            function getExtrakulikuler() {
+                $('#isiExtrakulikuler').html('');
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/extrakulikuler',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        test: 'test data'
+                    },
+                    success: function (data) {
+                        $(data).each(function (i, extrakulikuler) {
+                            $('#isiExtrakulikuler').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(extrakulikuler.nama))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(extrakulikuler.nis))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(extrakulikuler.kelas))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(extrakulikuler.jabatan))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(extrakulikuler.nilai))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(extrakulikuler.catatan))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
+                                ).append(`
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditExtrakulikuler" data-tutid="` 
+                                    + extrakulikuler.id +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteExtrakulikuler" data-tutid="` 
+                                    + extrakulikuler.id +`">Delete</button>
+                                    `)));
+                        });
+                        loadButtonss();
+                    }
+                })
+            }
+    
+            function updateExtrakulikuler(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/extrakulikuler/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#updateExtrakulikuler")[0].id).val(data.id);
+                        $($("#updateExtrakulikuler")[0].updateNama).val(data.nama);
+                        $($("#updateExtrakulikuler")[0].updateNis).val(data.nis);
+                        $($("#updateExtrakulikuler")[0].updateKelas).val(data.kelas);
+                        $($("#updateExtrakulikuler")[0].updateJabatan).val(data.jabatan);
+                        $($("#updateExtrakulikuler")[0].updateNilai).val(data.nilai);
+                        $($("#updateExtrakulikuler")[0].updateCatatan).val(data.catatan);
+                        $("#updateExtrakulikuler").show();
+                    }
+                });
+            }
+    
+            $("#submitData").on("click", function (e) {
+                let data = {
+                    nama: $($("#tabelTambah")[0].nama).val(),
+                    nis: $($("#tabelTambah")[0].nis).val(),
+                    kelas: $($("#tabelTambah")[0].kelas).val(),
+                    jabatan: $($("#tabelTambah")[0].jabatan).val(),
+                    nilai: $($("#tabelTambah")[0].nilai).val(),
+                    catatan: $($("#tabelTambah")[0].catatan).val()
+                }
+    
+                postData(data);
+                $("#tabelTambah").trigger("reset");
+                $("#tabelTambah").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function postData(data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/extrakulikuler',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getExtrakulikuler();;
+                    }
+                });
+            }
+    
+            function loadButtonss() {
+                $(".btneditExtrakulikuler").click(function (e) {
+                    updateExtrakulikuler($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+    
+                $(".btndeleteExtrakulikuler").click(function (e) {
+                    deleteExtrakulikuler($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                })
+            }
+    
+            function putData(id, data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/extrakulikuler/' + id,
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getExtrakulikuler();
+                    }
+                });
+            }
+    
+            $("#btnUpdateExtrakulikuler").on("click", function (e) {
+                let data = {
+                    nama: $($("#updateExtrakulikuler")[0].updateNama).val(),
+                    nis: $($("#updateExtrakulikuler")[0].updateNis).val(),
+                    kelas: $($("#updateExtrakulikuler")[0].updateKelas).val(),
+                    jabatan: $($("#updateExtrakulikuler")[0].updateJabatan).val(),
+                    nilai: $($("#updateExtrakulikuler")[0].updateNilai).val(),
+                    catatan: $($("#updateExtrakulikuler")[0].updateCatatan).val()
+                }
+    
+                putData($($("#updateExtrakulikuler")[0].id).val(), data);
+                $("#updateExtrakulikuler").trigger("reset");
+                $("#updateExtrakulikuler").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function deleteExtrakulikuler(id) {
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/extrakulikuler/' + id,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        getExtrakulikuler();
+                    }
+                });
+            }
+    
         });
     </script>
 </body>

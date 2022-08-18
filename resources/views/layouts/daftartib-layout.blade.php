@@ -66,18 +66,29 @@
             display: none;
         }
 
-        #updateData {
+        #updateTartib {
             display: none;
         }
 
         .dropdown:hover .dropdown-menu {
             display: block;
         }
+
+        #submitData{
+            float: right;
+            margin-bottom: 2%;
+        }
+
+        #btnUpdateTartib{
+            float: right;
+            margin-bottom: 2%;
+        }
     </style>
 
 </head>
 <?php
-$mapel = "";
+$kl = "";
+$jn = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -136,7 +147,8 @@ $mapel = "";
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <p class="mt-3 mr-1">Welcome,</p>
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
+                <button @click="isOpen = !isOpen"
+                    class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
                     {{ Auth::user()->name }}
                 </button>
                 <i class="fas fa-user-circle mt-4"></i>
@@ -171,19 +183,16 @@ $mapel = "";
                                                 <div
                                                     class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
                                                     <div class="flex items-center">
-                                                        <form action="tartib">
-                                                            <button id="btnTambah"
-                                                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">
-                                                                <svg class="fill-current w-4 h-4 mr-2"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    viewBox="0 0 16 16">
-                                                                    <path
-                                                                        d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z">
-                                                                    </path>
-                                                                </svg>
-                                                                <span>Tambah Tata Tertib</span>
-                                                            </button>
-                                                        </form>
+                                                        <button id="btnTambah"
+                                                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">
+                                                            <svg class="fill-current w-4 h-4 mr-2"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                                                <path
+                                                                    d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z">
+                                                                </path>
+                                                            </svg>
+                                                            <span>Tambah Tata Tertib</span>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,150 +266,234 @@ $mapel = "";
                         </div>
                         {{-- End Search Bar --}}
 
-                        {{-- Isi Tabel --}}
-                        <div class="flex flex-col mt-8">
-                            <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                                <div
-                                    class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                                    <table class="min-w-full">
-                                        <thead>
-                                            <tr>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Tanggal</th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Nama/NIS </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Kelas</th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Jenis
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Jumlah
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Poin
-                                                </th>
-                                                <th
-                                                    class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Keterangan
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="bg-white">
-                                            <tr>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                23 Mei 20xx</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Ahmad/99901</div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Kelas 6</div>
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Sakit
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    1
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    10
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Sakit DBD 3 Hari
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                28 Mei 20xx</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Dani/99902</div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Kelas 6</div>
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Alpha
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    1
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    20
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Tidak Ada Keterangan
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="ml-4">
-                                                            <div class="text-sm font-medium leading-5 text-gray-900">
-                                                                1 Juni 20xx</div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Jaka/99903</div>
-                                                </td>
-                                                <td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div class="text-sm leading-5 text-gray-900">Kelas 5</div>
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Dispensasi
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    1
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    0
-                                                </td>
-                                                <td
-                                                    class="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    Perlombaan Tari
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <!-- Update Data -->
+                        <form id="updateTartib" class="mt-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Tata Tertib</h2><br>
+                            <div class="mb-4">
+                                <div class="col-sm-10">
+                                    <input type="hidden"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="id">
                                 </div>
                             </div>
-                            {{-- Akhir Isi Tabel --}}
+                            <div class="mb-4">
+                                <label for="updateNis"
+                                    class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateNis" placeholder="NIS">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="updateNama"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateNama" placeholder="Nama">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="updateKelas" class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="updateKelas" id="updateKelas">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Kelas 4" <?php if ($kl == "Kelas 4") echo "selected" ?>>Kelas 4
+                                        </option>
+                                        <option value="Kelas 5" <?php if ($kl == "Kelas 5") echo "selected" ?>>Kelas 5
+                                        </option>
+                                        <option value="Kelas 6" <?php if ($kl == "Kelas 6") echo "selected" ?>>Kelas 6
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="updateTanggal"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Tanggal</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateTanggal" placeholder="Tanggal - Bulan - Tahun">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="updateJenis" class="block text-gray-700 text-sm font-bold mb-2">Jenis Pelanggaran</label>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="updateJenis" id="updateJenis">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Sakit" <?php if ($jn == "Sakit") echo "selected" ?>>Sakit
+                                        </option>
+                                        <option value="Alpha" <?php if ($jn == "Alpha") echo "selected" ?>>Alpha
+                                        </option>
+                                        <option value="Dispensasi" <?php if ($jn == "Dispensasi") echo "selected" ?>>Dispensasi
+                                        </option>
+                                        <option value="Lain - Lain" <?php if ($jn == "Lain - Lain") echo "selected" ?>>Lain - Lain
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="updateKeterangan" class="block text-gray-700 text-sm font-bold mb-2">Keterangan Pelanggaran</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="updateKeterangan" placeholder="Keterangan">
+                                </div>
+                            </div>
+                            <button id="btnUpdateTartib"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
+                            <br>
+                        </form>
+                        <!-- Akhir Update Data -->
+
+                        <!-- Tambah Data -->
+                        <form id="tabelTambah" class="mt-4 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                            <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Tata Tertib</h2><br>
+                            <div class="mb-4">
+                                <label for="nis"
+                                    class="block text-gray-700 text-sm font-bold mb-2">NIS</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="nis" placeholder="NIS">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="nama"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="nama" placeholder="Nama">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="kelas" class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="kelas" id="kelas">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Kelas 4" <?php if ($kl == "Kelas 4") echo "selected" ?>>Kelas 4
+                                        </option>
+                                        <option value="Kelas 5" <?php if ($kl == "Kelas 5") echo "selected" ?>>Kelas 5
+                                        </option>
+                                        <option value="Kelas 6" <?php if ($kl == "Kelas 6") echo "selected" ?>>Kelas 6
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="tanggal"
+                                    class="block text-gray-700 text-sm font-bold mb-2">Tanggal</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="tanggal" placeholder="Tanggal - Bulan - Tahun">
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="jenis" class="block text-gray-700 text-sm font-bold mb-2">Jenis Pelanggaran</label>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="jenis" id="jenis">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Sakit" <?php if ($jn == "Sakit") echo "selected" ?>>Sakit
+                                        </option>
+                                        <option value="Alpha" <?php if ($jn == "Alpha") echo "selected" ?>>Alpha
+                                        </option>
+                                        <option value="Dispensasi" <?php if ($jn == "Dispensasi") echo "selected" ?>>Dispensasi
+                                        </option>
+                                        <option value="Lain - Lain" <?php if ($jn == "Lain - Lain") echo "selected" ?>>Lain - Lain
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="keterangan" class="block text-gray-700 text-sm font-bold mb-2">Keterangan Pelanggaran</label>
+                                <div class="col-sm-10">
+                                    <input type="text"
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        id="keterangan" placeholder="Keterangan">
+                                </div>
+                            </div>
+                            <button id="submitData"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
+                            <br>
+                        </form>
+                        <!-- Akhir Tambah Data -->
+
+                        {{-- Tampil Data --}}
+                        <div class="container mx-auto px-3 py-4">
+                            <div>
+                                <div>
+                                    <!-- Tabel Data -->
+                                    <div id="page-wrapper">
+                                        <div id="w-full max-w-xs">
+                                            <!-- /. ROW  -->
+                                            <!-- Isi -->
+                                            <br>
+                                            <div id="page-wrapper">
+                                                <div id="w-full max-w-xs">
+                                                    <div class="flex flex-col">
+                                                        <div
+                                                            class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                                                            <div
+                                                                class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
+                                                                <table id="tabelTartib"
+                                                                    class="w-full text-sm text-left text-black-500 dark:text-black-400">
+                                                                    <thead
+                                                                        class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400">
+                                                                        <tr>
+                                                                            <th scope="col" class="py-3 px-6">NIS</th>
+                                                                            <th scope="col" class="py-3 px-6">NAMA</th>
+                                                                            <th scope="col" class="py-3 px-6">KELAS</th>
+                                                                            <th scope="col" class="py-3 px-6">TANGGAL
+                                                                            </th>
+                                                                            <th scope="col" class="py-3 px-6">JENIS</th>
+                                                                            <th scope="col" class="py-3 px-6">KETERANGAN
+                                                                            </th>
+                                                                            <th scope="col" class="py-3 px-6">ACTION
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="isiTartib" class="bg-white">
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /. ROW  -->
+                                        </div>
+                                        <!-- /. PAGE INNER  -->
+                                    </div>
+                                    <!-- Akhir Tabel Data -->
+                                </div>
+                            </div>
                         </div>
-                        <!-- Akhir Isi  -->
+                        {{-- Akhir Tampil Data --}}
                     </div>
                 </div>
             </main>
         </div>
-
     </div>
 
     <!-- AlpineJS -->
@@ -486,6 +579,156 @@ $mapel = "";
                         }
                     }]
                 }
+            }
+        });
+    </script>
+
+    {{-- Connect API --}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            getTartib();
+
+            $("#btnTambah").on("click", function (e) {
+                $("#tabelTambah").toggle();
+            });
+    
+            function getTartib() {
+                $('#isiTartib').html('');
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/tartib',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        test: 'test data'
+                    },
+                    success: function (data) {
+                        $(data).each(function (i, tartib) {
+                            $('#isiTartib').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(tartib.nis))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(tartib.nama))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(tartib.kelas))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(tartib.tanggal))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(tartib.jenis))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(tartib.keterangan))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
+                                ).append(`
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditTartib" data-tutid="` 
+                                    + tartib.id +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteTartib" data-tutid="` 
+                                    + tartib.id +`">Delete</button>
+                                    `)));
+                        });
+                        loadButtonss();
+                    }
+                })
+            }
+    
+            function updateTartib(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/tartib/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#updateTartib")[0].id).val(data.id);
+                        $($("#updateTartib")[0].updateNis).val(data.nis);
+                        $($("#updateTartib")[0].updateNama).val(data.nama);
+                        $($("#updateTartib")[0].updateKelas).val(data.kelas);
+                        $($("#updateTartib")[0].updateTanggal).val(data.tanggal);
+                        $($("#updateTartib")[0].updateJenis).val(data.jenis);
+                        $($("#updateTartib")[0].updateKeterangan).val(data.keterangan);
+                        $("#updateTartib").show();
+                    }
+                });
+            }
+    
+            $("#submitData").on("click", function (e) {
+                let data = {
+                    nis: $($("#tabelTambah")[0].nis).val(),
+                    nama: $($("#tabelTambah")[0].nama).val(),
+                    kelas: $($("#tabelTambah")[0].kelas).val(),
+                    tanggal: $($("#tabelTambah")[0].tanggal).val(),
+                    jenis: $($("#tabelTambah")[0].jenis).val(),
+                    keterangan: $($("#tabelTambah")[0].keterangan).val()
+                }
+    
+                postData(data);
+                $("#tabelTambah").trigger("reset");
+                $("#tabelTambah").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function postData(data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/tartib',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getTartib();;
+                    }
+                });
+            }
+    
+            function loadButtonss() {
+                $(".btneditTartib").click(function (e) {
+                    updateTartib($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+    
+                $(".btndeleteTartib").click(function (e) {
+                    deleteTartib($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                })
+            }
+    
+            function putData(id, data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/tartib/' + id,
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getTartib();
+                    }
+                });
+            }
+    
+            $("#btnUpdateTartib").on("click", function (e) {
+                let data = {
+                    nis: $($("#updateTartib")[0].updateNis).val(),
+                    nama: $($("#updateTartib")[0].updateNama).val(),
+                    kelas: $($("#updateTartib")[0].updateKelas).val(),
+                    tanggal: $($("#updateTartib")[0].updateTanggal).val(),
+                    jenis: $($("#updateTartib")[0].updateJenis).val(),
+                    keterangan: $($("#updateTartib")[0].updateKeterangan).val()
+                }
+    
+                putData($($("#updateTartib")[0].id).val(), data);
+                $("#updateTartib").trigger("reset");
+                $("#updateTartib").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function deleteTartib(id) {
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/tartib/' + id,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        getTartib();
+                    }
+                });
             }
         });
     </script>

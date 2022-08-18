@@ -62,18 +62,22 @@
             background: #3d68ff;
         }
 
-        #tabelTambah {
+        /* #tabelTambah {
             display: none;
         }
 
         #updateData {
             display: none;
+        } */
+
+        #btnPengumuman{
+            float: right;
         }
     </style>
 
 </head>
 <?php
-$mapel = "";
+$kl = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -152,6 +156,7 @@ $mapel = "";
         <div class="w-full overflow-x-hidden border-t flex flex-col p-2">
             <main class="h-full overflow-y-auto bg-white">
                 <div class="container px-6 mx-auto grid">
+
                     <div class="lg:flex justify-between items-center mb-6">
                         <p class="text-2xl font-semibold mb-2 lg:mb-0">Pengumuman Baru</p>
                         <div>
@@ -171,54 +176,56 @@ $mapel = "";
                             {{-- End Search Bar --}}
                         </div>
                     </div>
-                    <!-- General elements -->
-                    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md bg-white">
-                        <label class="block text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">Judul Pengumuman</span>
-                            <input
-                                class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                                placeholder="Pengumuman">
-                        </label>
 
-                        <div class="mt-4 text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">
-                                Tujuan
-                            </span>
-                            <div class="mt-2">
-                                <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
-                                    <input type="checkbox"
-                                        class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                        name="accountType" value="personal">
-                                    <span class="ml-2">Murid</span>
-                                </label>
-                                <p></p>
-                                <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
-                                    <input type="checkbox"
-                                        class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                        name="accountType" value="personal">
-                                    <span class="ml-2">Guru</span>
-                                </label>
+                    <!-- General elements -->
+                    <form id="tabelTambah">
+                        <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md bg-white">
+                            <label for="judul" class="block text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Judul Pengumuman</span>
+                                <input
+                                    class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                                    id="judul" placeholder="Pengumuman">
+                            </label>
+    
+                            <div class="mt-4 text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">
+                                    Tujuan Pengumuman
+                                </span>
+                                <div class="col-sm-10">
+                                    <select
+                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                        name="tujuan" id="tujuan">
+                                        <option value="">- Pilih -</option>
+                                        <option value="Seluruh Warga Sekolah" <?php if ($kl == "Seluruh Warga Sekolah") echo "selected" ?>>Seluruh Warga Sekolah
+                                        </option>
+                                        <option value="Seluruh Guru" <?php if ($kl == "Seluruh Guru") echo "selected" ?>>Seluruh Guru
+                                        </option>
+                                        <option value="Seluruh Siswa - Siswi" <?php if ($kl == "Seluruh Siswa - Siswi") echo "selected" ?>>Seluruh Siswa - Siswi
+                                        </option>
+                                        <option value="Extrakulikuler" <?php if ($kl == "Extrakulikuler") echo "selected" ?>>Extrakulikuler
+                                        </option>
+                                        <option value="Orang Tua Murid" <?php if ($kl == "Orang Tua Murid") echo "selected" ?>>Orang Tua Murid
+                                        </option>
+                                        <option value="Umum" <?php if ($kl == "Umum") echo "selected" ?>>Umum
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
+                            <label for="isi" class="block mt-4 text-sm">
+                                <span class="text-gray-700 dark:text-gray-400">Isi Pengumuman</span>
+                                <textarea
+                                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                    id="isi" rows="3" placeholder="Isi Pengumuman"></textarea>
+                            </label>
+                            <br>
                         </div>
-                        <label class="block mt-4 text-sm">
-                            <span class="text-gray-700 dark:text-gray-400">Isi Pengumuman</span>
-                            <textarea
-                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-                                rows="3" placeholder="Isi Pengumuman"></textarea>
-                        </label>
-                        <br>
-                        <form action="dafadministrasi">
-                            <div>
-                                <button class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">
-                                  Simpan
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    </form>
+                        <button id="btnPengumuman"
+                        class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-blue-600 border border-transparent rounded-lg active:bg-blue-600 hover:bg-blue-700 focus:outline-none focus:shadow-outline-blue">Simpan
+                    </button>
                 </div>
             </main>
         </div>
-
     </div>
 
     <!-- AlpineJS -->
@@ -304,6 +311,139 @@ $mapel = "";
                         }
                     }]
                 }
+            }
+        });
+    </script>
+
+    {{-- Connect API --}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+    
+            getPengumuman();
+    
+            function getPengumuman() {
+                $('#isiPengumuman').html('');
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman',
+                    method: 'get',
+                    dataType: 'json',
+                    data: {
+                        test: 'test data'
+                    },
+                    success: function (data) {
+                        $(data).each(function (i, pengumuman) {
+                            $('#isiPengumuman').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(pengumuman.judul))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(pengumuman.tujuan))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(pengumuman.isi))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
+                                ).append(`
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditPengumuman" data-tutid="` 
+                                    + pengumuman.id +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeletePengumuman" data-tutid="` 
+                                    + pengumuman.id +`">Delete</button>
+                                    `)));
+                        });
+                        loadButtonss();
+                    }
+                })
+            }
+    
+            function updatePengumuman(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#updatePengumuman")[0].id).val(data.id);
+                        $($("#updatePengumuman")[0].updateJudul).val(data.judul);
+                        $($("#updatePengumuman")[0].updateTujuan).val(data.tujuan);
+                        $($("#updatePengumuman")[0].updateIsi).val(data.isi);
+                        $("#updatePengumuman").show();
+                    }
+                });
+            }
+    
+            $("#btnPengumuman").on("click", function (e) {
+                let data = {
+                    judul: $($("#tabelTambah")[0].judul).val(),
+                    tujuan: $($("#tabelTambah")[0].tujuan).val(),
+                    isi: $($("#tabelTambah")[0].isi).val()
+                }
+    
+                postData(data);
+                $("#tabelTambah").trigger("reset");
+                e.preventDefault();
+    
+            });
+    
+            function postData(data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman',
+                    method: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();;
+                    }
+                });
+            }
+    
+            function loadButtonss() {
+                $(".btneditPengumuman").click(function (e) {
+                    updatePengumuman($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+    
+                $(".btndeletePengumuman").click(function (e) {
+                    deletePengumuman($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                })
+            }
+    
+            function putData(id, data) {
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'PUT',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();
+                    }
+                });
+            }
+    
+            $("#btnUpdatePengumuman").on("click", function (e) {
+                let data = {
+                    judul: $($("#updatePengumuman")[0].updateJudul).val(),
+                    tujuan: $($("#updatePengumuman")[0].updateTujuan).val(),
+                    isi: $($("#updatePengumuman")[0].updateIsi).val()
+                }
+    
+                putData($($("#updatePengumuman")[0].id).val(), data);
+                $("#updatePengumuman").trigger("reset");
+                $("#updatePengumuman").toggle();
+                e.preventDefault();
+    
+            });
+    
+            function deletePengumuman(id) {
+                var API ='{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/pengumuman/' + id,
+                    method: 'DELETE',
+                    dataType: 'json',
+                    success: function (data) {
+                        console.log(data);
+                        getPengumuman();
+                    }
+                });
             }
         });
     </script>
