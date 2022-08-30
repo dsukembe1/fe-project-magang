@@ -9,4 +9,8 @@ class dafNilaiController extends Controller
     function index(){
         return view('layouts.dafnilai-layout');
     }
+
+    function guru(){
+        return view('guru.dafnilai-layout');
+    }
 }

@@ -110,7 +110,7 @@ $kl = "";
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
-            <a href="dafadministrasi"
+            <!-- <a href="dafadministrasi"
                 class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Administrasi
@@ -118,15 +118,15 @@ $kl = "";
             <a href="daftartib" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
-            </a>
+            </a> -->
             <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
-            <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <!-- <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fab fa-slideshare mr-3"></i>
                 Kelas
-            </a>
+            </a> -->
         </nav>
     </aside>
     {{-- Akhir Menu --}}

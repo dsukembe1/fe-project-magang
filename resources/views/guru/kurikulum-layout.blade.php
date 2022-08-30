@@ -22,7 +22,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    {{-- <script src="{{ asset('mainAjax.js') }}" defer></script> --}}
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
@@ -63,27 +62,51 @@
             display: none;
         }
 
-        #updatePrestasii {
+        #updateKurikulum {
             display: none;
+        }
+
+        #tampilKurikulum {
+            display: none;
+        }
+
+        #btnCloseKurikulum {
+            display: block;
+        }
+
+        input[type=text]:disabled {
+            background: #dddddd;
+        }     
+        
+        select:disabled {
+            background: #dddddd;
+        }
+
+        textarea:disabled {
+            background: #dddddd;
         }
 
         #submitData {
             float: right;
         }
 
-        #btnUpdatePrestasi{
+        #btnUpdateKurikulum{
+            float: right;
+        }
+
+        #btnCloseKurikulum{
             float: right;
         }
     </style>
 
 </head>
 <?php
-$kl = "";
+$sm = "";
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
 
-    {{-- Menu --}}
+    {{-- Side Bar --}}
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-2">
             <center><img width="90" src="img/sekolahxyz2.png"></center>
@@ -97,7 +120,7 @@ $kl = "";
                 <i class="fas fa-list-alt mr-3"></i>
                 Nilai
             </a>
-            <a href="dafkurikulum" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="dafkurikulum" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
@@ -106,11 +129,11 @@ $kl = "";
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
-            <a href="dafprestasi" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
-            <a href="dafadministrasi"
+            <!-- <a href="dafadministrasi"
                 class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-align-left mr-3"></i>
                 Administrasi
@@ -118,18 +141,18 @@ $kl = "";
             <a href="daftartib" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
-            </a>
+            </a> -->
             <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
-            <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <!-- <a href="dafkelas" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fab fa-slideshare mr-3"></i>
                 Kelas
-            </a>
+            </a> -->
         </nav>
     </aside>
-    {{-- Akhir Menu --}}
+    {{-- Akhir Side Bar --}}
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
@@ -137,7 +160,8 @@ $kl = "";
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <p class="mt-3 mr-1">Welcome,</p>
-                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
+                <button @click="isOpen = !isOpen"
+                    class="realtive z-10 w-12 h-12 overflow-hidden focus:outline-none mr-1">
                     {{ Auth::user()->name }}
                 </button>
                 <i class="fas fa-user-circle mt-4"></i>
@@ -154,18 +178,21 @@ $kl = "";
 
         <div class="w-full overflow-x-hidden border-t flex flex-col">
             <main class="w-full flex-grow p-6">
-                {{-- Atas --}}
+                {{-- Header Kiri --}}
                 <div class="lg:flex justify-between items-center mb-6">
-                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Rekapitulasi Prestasi : Ahmad</p>
+                    <p class="text-2xl font-semibold mb-2 lg:mb-0">Mata Pelajaran : Bahasa Indonesia ( Kelas 6 )</p>
                     <div>
                         <div>
                             <div>
                                 <div class="flex items-left">
                                     <div class="mt-2">
-                                        <form action="dafprestasi">
+                                        <form action="dafkurikulum">
                                             <button class="btn btn-circle btn-outline">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                              </button>
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                            </button>
                                         </form>
                                     </div>
                                 </div>
@@ -173,8 +200,9 @@ $kl = "";
                         </div>
                     </div>
                 </div>
+                {{-- Akhir Header Kiri --}}
 
-                {{-- Button Kanan --}}
+                {{-- Button Data & Download --}}
                 <div class="lg:flex justify-between items-center mb-6">
                     <p class="text-2xl font-semibold mb-2 lg:mb-0"></p>
                     <div>
@@ -192,7 +220,16 @@ $kl = "";
                                                             d="M15 7H9V1c0-.6-.4-1-1-1S7 .4 7 1v6H1c-.6 0-1 .4-1 1s.4 1 1 1h6v6c0 .6.4 1 1 1s1-.4 1-1V9h6c.6 0 1-.4 1-1s-.4-1-1-1z">
                                                         </path>
                                                     </svg>
-                                                    <span>Tambah</span>
+                                                    <span>Tambah Kopetensi</span>
+                                                </button>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <button
+                                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">
+                                                    <svg class="fill-current w-4 h-4 mr-2"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" /></svg>
+                                                    <span>Download</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -200,77 +237,58 @@ $kl = "";
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
-                {{-- Akhir Button Kanan --}}
+                {{-- Akhir Button Data & Download --}}
 
                 <!-- Tambah Data -->
                 <form id="tabelTambah" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                    <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Data Prestasi</h2><br>
+                    <h2 class="intro-y text-lg font-medium mr-auto mt-2">Tambah Kopetensi</h2><br>
                     <div class="mb-4">
-                        <label for="tanggal" class="block text-gray-700 text-sm font-bold mb-2">Tanggal Pelaksanaan
-                            <p><small class="text-muted">Hari - Bulan - Tanggal</small></p>
-                        </label>
+                        <label for="no_kd" class="block text-gray-700 text-sm font-bold mb-2">No Kopetensi</label>
                         <div class="col-sm-10">
                             <input type="text"
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="tanggal" placeholder="Hari - Bulan - Tanggal">
+                                id="no_kd" placeholder="No Kopetensi">
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <label for="prestasi" class="block text-gray-700 text-sm font-bold mb-2">Prestasi</label>
-                        <div class="col-sm-10">
-                            <input type="text"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="prestasi" placeholder="Prestasi">
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="kegiatan" class="block text-gray-700 text-sm font-bold mb-2">Kegiatan</label>
-                        <div class="col-sm-10">
-                            <input type="text"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="kegiatan" placeholder="Kegiatan">
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="capaian" class="block text-gray-700 text-sm font-bold mb-2">Capaian</label>
-                        <div class="col-sm-10">
-                            <input type="text"
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                id="capaian" placeholder="Capaian">
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <label for="point" class="block text-gray-700 text-sm font-bold mb-2">Point yang Didapat</label>
+                        <label for="semester" class="block text-gray-700 text-sm font-bold mb-2">Semester</label>
                         <div class="col-sm-10">
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                name="point" id="point">
+                                name="semester" id="semester">
                                 <option value="">- Pilih -</option>
-                                <option value="0" <?php if ($kl == "0") echo "selected" ?>>0
+                                <option value="GENAP" <?php if ($sm == "GENAP") echo "selected" ?>>GENAP
                                 </option>
-                                <option value="3" <?php if ($kl == "3") echo "selected" ?>>3
-                                </option>
-                                <option value="5" <?php if ($kl == "5") echo "selected" ?>>5
-                                </option>
-                                <option value="10" <?php if ($kl == "10") echo "selected" ?>>10
-                                </option>
-                                <option value="15" <?php if ($kl == "15") echo "selected" ?>>15
-                                </option>
-                                <option value="20" <?php if ($kl == "20") echo "selected" ?>>20
-                                </option>
-                                <option value="25" <?php if ($kl == "25") echo "selected" ?>>25
+                                <option value="GANJIL"
+                                    <?php if ($sm == "GANJIL") echo "selected" ?>>GANJIL
                                 </option>
                             </select>
-                            <br><br>
-                            <button id="submitData"
-                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
                         </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="desk" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
+                        <div class="col-sm-10">
+                            <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="desk" placeholder="Deskripsi"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="desk_ringkasan" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi Ringkasan</label>
+                        <div class="col-sm-10">
+                            <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="desk_ringkasan" placeholder="Deskripsi Ringkasan"></textarea>
+                        </div>
+                        <br>
+                        <button id="submitData"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Tambah</button>
                     </div>
                 </form>
                 <!-- Akhir Tambah Data -->
@@ -287,43 +305,38 @@ $kl = "";
                                             class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400 bg-white"
                                             align="center">
                                             <tr>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Nama
-                                                    / NIS</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Nama Mata
+                                                    Pelajaran</th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Kode Mapel</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Program</th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Kelompok</th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
                                                 <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Poin</th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Kelas</th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Wali Kelas</th>
                                                 <th scope="col" class="py-3 px-6"></th>
+                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Mapel Induk
+                                                </th>
                                                 <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd">Konseling</th>
-                                                <th scope="col" class="py-3 px-6"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
-                                                <th scope="col" class="py-3 px-6" style="color: #0038fd"></th>
                                             </tr>
                                         </thead>
                                         <tbody align="center" class="bg-white">
-                                            <td class="px-4 py-2 whitespace-nowrap">Ahmad</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Bahasa Indonesia</td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap">BI</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Umum</td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Wajib</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">25</td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Kelas 6</td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Pak Heru</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap">Budi</td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
-                                            <td class="px-4 py-2 whitespace-nowrap"></td>
+                                            <td class="px-4 py-2 whitespace-nowrap">Bahasa Indonesia</td>
                                             <td class="px-4 py-2 whitespace-nowrap"></td>
                                         </tbody>
                                     </table>
@@ -339,44 +352,36 @@ $kl = "";
                 <div class="flex flex-wrap -mx-3">
                     <div class="w-1/2 xl:w-1/3 px-3">
                         <div class="w-full bg-white border text-blue-400 rounded-lg flex items-center p-6 mb-6 xl:mb-0">
-                                <div class="text-gray-700">
-                                    <h2 style="color: #0038fd">Point Prestasi</h2>
-                                    <p>Masa Studi</p>
-                                    <p class="font-semibold text-3xl">25</p>
-                                </div>
-                                <div class="text-gray-700">
-                                    <br>
-                                    <p>Semester Ini</p>
-                                    <p class="font-semibold text-3xl">25</p>
-                                </div>
+                            <div class="text-gray-700">
+                                <h2 style="color: #0038fd">Ketuntasan Minimal</h2>
+                                <p>Kelas</p>
+                                <p class="font-semibold text-3xl">Kelas 6</p>
+                            </div>
+                            <div class="text-gray-700">
+                                <br>
+                                <p>KKM</p>
+                                <p class="font-semibold text-3xl">75</p>
+                            </div>
                         </div>
                     </div>
                     <div class="w-1/2 xl:w-1/3 px-3">
                         <div class="w-full bg-white border text-blue-400 rounded-lg flex items-center p-6 mb-6 xl:mb-0">
-                                <div class="text-gray-700">
-                                    <h2 style="color: #0038fd">Jumlah Point</h2>
-                                    <p>Akademik</p>
-                                    <p class="font-semibold text-3xl">0</p>
-                                </div>
-                                <div class="text-gray-700">
-                                    <br>
-                                    <p>Extrakulikuler</p>
-                                    <p class="font-semibold text-3xl">0</p>
-                                </div>
+                            <div class="text-gray-700">
+                                <h2 style="color: #0038fd">Pengetahuan</h2>
+                                <p class="font-semibold">A : 91 - 100</p>
+                                <p class="font-semibold">B : 80 - 90</p>
+                                <p class="font-semibold">C : 70 - 79</p>
+                            </div>
                         </div>
                     </div>
                     <div class="w-1/2 xl:w-1/3 px-3">
                         <div class="w-full bg-white border text-blue-400 rounded-lg flex items-center p-6 mb-6 xl:mb-0">
-                                <div class="text-gray-700">
-                                    <h2 style="color: #0038fd">Jumlah Point</h2>
-                                    <p>Lomba</p>
-                                    <p class="font-semibold text-3xl">25</p>
-                                </div>
-                                <div class="text-gray-700">
-                                    <br>
-                                    <p></p>
-                                    <p class="font-semibold text-3xl"></p>
-                                </div>
+                            <div class="text-gray-700">
+                                <h2 style="color: #0038fd">Keterampilan</h2>
+                                <p class="font-semibold">A : 91 - 100</p>
+                                <p class="font-semibold">B : 80 - 90</p>
+                                <p class="font-semibold">C : 70 - 79</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -386,40 +391,41 @@ $kl = "";
                 <div>
                     <div class="mt-8">
                         <div class="mt-4">
-                                <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
-                                    <span><h3>Nama Kegiatan</h3>
+                            <div class="flex px-4 py-4 space-x-4 overflow-x-auto bg-white rounded-md">
+                                <span>
+                                    <h3>Kopetensi Dasar</h3>
                                     <div class="flex items-left"><button
                                             class="text-gray-500 focus:outline-none lg:hidden">
                                             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor"
-                                                    stroke-width="2" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
+                                                <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"></path>
                                             </svg></button>
-                                            
+
                                         <div class="relative mx-4 lg:mx-0"><span
                                                 class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
                                                 class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
                                                 type="text" placeholder="Search">
                                         </div>
-                                    </div></span>
-                                    <span><h3>Jenis Prestasi</h3>
-                                        <div class="flex items-left"><button
-                                                class="text-gray-500 focus:outline-none lg:hidden">
-                                                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M4 6H20M4 12H20M4 18H11" stroke="currentColor"
-                                                        stroke-width="2" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                </svg></button>
-                                                
-                                            <div class="relative mx-4 lg:mx-0"><span
-                                                    class="absolute inset-y-0 left-0 flex items-left pl-3"></span><input
-                                                    class="w-32 pl-10 pr-4 text-indigo-600 border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                                    type="text" placeholder="Search">
-                                            </div>
-                                        </div></span>
-                                </div>
+                                    </div>
+                                </span>
+                                <span>
+                                    <h3>Semester</h3>
+                                    <div class="flex items-left"><button
+                                            class="text-gray-500 focus:outline-none lg:hidden"></button>
+
+                                        <div class="relative mx-4 lg:mx-0"><span
+                                                class="absolute inset-y-0 left-0 flex items-left pl-3"></span>
+                                            <select
+                                                class="text-black border-gray-200 rounded-md sm:w-64 focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500">
+                                                <option>Search</option>
+                                                <option>GENAP</option>
+                                                <option>GANJIL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -428,88 +434,129 @@ $kl = "";
 
                 <!-- Update Data -->
                 <div id="updateDataDiv">
-                    <form id="updatePrestasii" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                        <h2 class="intro-y text-lg font-medium mr-auto mt-2">Update Data</h2>
+                    <form id="updateKurikulum" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <h2 class="intro-y text-lg font-medium mr-auto mt-2">Edit Kopetensi</h2>
                         <div class="mb-4">
                             <div class="col-sm-10">
                                 <input type="hidden"
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="id">
+                                    id="no_kd">
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <label for="updateTanggal" class="block text-gray-700 text-sm font-bold mb-2">Tanggal Pelaksanaan
-                                <p><small class="text-muted">Hari - Bulan - Tanggal</small></p>
-                            </label>
+                            <label for="updateNo_kd"
+                                class="block text-gray-700 text-sm font-bold mb-2">No Kopetensi</label>
                             <div class="col-sm-10">
                                 <input type="text"
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="updateTanggal" placeholder="Hari - Bulan - Tanggal">
+                                    id="updateNo_kd" placeholder="No Kopetensi">
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <label for="updatePrestasi"
-                                class="block text-gray-700 text-sm font-bold mb-2">Prestasi</label>
-                            <div class="col-sm-10">
-                                <input type="text"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="updatePrestasi" placeholder="Prestasi">
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="updateKegiatan"
-                                class="block text-gray-700 text-sm font-bold mb-2">Kegiatan</label>
-                            <div class="col-sm-10">
-                                <input type="text"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="updateKegiatan" placeholder="Kegiatan">
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="updateCapaian"
-                                class="block text-gray-700 text-sm font-bold mb-2">Capaian</label>
-                            <div class="col-sm-10">
-                                <input type="text"
-                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="updateCapaian" placeholder="Capaian">
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="updatePoint"
-                                class="block text-gray-700 text-sm font-bold mb-2">Point yang Didapat</label>
+                            <label for="updateSemester"
+                                class="block text-gray-700 text-sm font-bold mb-2">Semester</label>
                             <div class="col-sm-10">
                                 <select
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    name="updatePoint" id="updatePoint">
+                                    name="updateSemester" id="updateSemester">
                                     <option value="">- Pilih -</option>
-                                    <option value="0" <?php if ($kl == "0") echo "selected" ?>>0
-                                    </option>
-                                    <option value="3" <?php if ($kl == "3") echo "selected" ?>>3
-                                    </option>
-                                    <option value="5" <?php if ($kl == "5") echo "selected" ?>>5
-                                    </option>
-                                    <option value="10" <?php if ($kl == "10") echo "selected" ?>>10
-                                    </option>
-                                    <option value="15" <?php if ($kl == "15") echo "selected" ?>>15
-                                    </option>
-                                    <option value="20" <?php if ($kl == "20") echo "selected" ?>>20
-                                    </option>
-                                    <option value="25" <?php if ($kl == "25") echo "selected" ?>>25
-                                    </option>
+                                <option value="GENAP" <?php if ($sm == "GENAP") echo "selected" ?>>GENAP
+                                </option>
+                                <option value="GANJIL"
+                                    <?php if ($sm == "GANJIL") echo "selected" ?>>GANJIL
+                                </option>
                                 </select>
-                                <br><br>
-                                <button id="btnUpdatePrestasi"
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Update</button>
                             </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateDesk" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="updateDesk" placeholder="Deskripsi"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="updateDesk_ringkasan" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi Ringkasan</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="updateDesk_ringkasan" placeholder="Deskripsi Ringkasan"></textarea>
+                            </div>
+                            <br>
+                            <button id="btnUpdateKurikulum"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Update</button>
                         </div>
                     </form>
                 </div>
                 <!-- Akhir Update Data -->
+
+                <!-- Tampil Data -->
+                <div id="tampilDataDiv">
+                    <form id="tampilKurikulum" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <h2 class="intro-y text-lg font-medium mr-auto mt-2">Data Kopetensi</h2>
+                        <div class="mb-4">
+                            <div class="col-sm-10">
+                                <input type="hidden"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="no_kd">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="tampilNo_kd"
+                                class="block text-gray-700 text-sm font-bold mb-2">No Kopetensi</label>
+                            <div class="col-sm-10">
+                                <input type="text"
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    id="tampilNo_kd" placeholder="No Kopetensi" disabled="disabled">
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="tampilSemester"
+                                class="block text-gray-700 text-sm font-bold mb-2">Semester</label>
+                            <div class="col-sm-10">
+                                <select
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    name="tampilSemester" id="tampilSemester" disabled="disabled">
+                                    <option value="">- Pilih -</option>
+                                <option value="GENAP" <?php if ($sm == "GENAP") echo "selected" ?>>GENAP
+                                </option>
+                                <option value="GANJIL"
+                                    <?php if ($sm == "GANJIL") echo "selected" ?>>GANJIL
+                                </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="tampilDesk" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="tampilDesk" placeholder="Deskripsi" disabled="disabled"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="tampilDesk_ringkasan" class="block text-gray-700 text-sm font-bold mb-2">Deskripsi Ringkasan</label>
+                            <div class="col-sm-10">
+                                <textarea
+                                class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
+                                rows="3" id="tampilDesk_ringkasan" placeholder="Deskripsi Ringkasan" disabled="disabled"></textarea>
+                            </div>
+                            <br>
+                            <button id="btnCloseKurikulum"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 inline-flex rounded">Close</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Akhir Tampil Data -->
 
                 <!-- Tabel Data -->
                 <div id="page-wrapper">
@@ -517,26 +564,31 @@ $kl = "";
                         <!-- /. ROW  -->
                         <!-- Isi -->
                         <br>
+                        <div class="flex px-4 py-4 space-x-4 bg-white rounded-md mb-3">
+                            <div class="flex items-center">
+                                <h1 class="ml-3 font-bold">KD Pengetahuan : 12 Kopetensi</h1><br>
+                            </div>
+                        </div>
+
                         <div id="page-wrapper">
                             <div id="w-full max-w-xs">
                                 <div class="flex flex-col">
                                     <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
                                         <div
                                             class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
-                                            <table id="tabelPrestasi"
+                                            <table id="tabelKurikulum"
                                                 class="w-full text-sm text-left text-black-500 dark:text-black-400">
                                                 <thead
                                                     class="text-xs text-black-700 uppercase bg-black-50 dark:bg-black-700 dark:text-black-400">
                                                     <tr>
-                                                        <th scope="col" class="py-3 px-6">TANGGAL</th>
-                                                        <th scope="col" class="py-3 px-6">PRESTASI</th>
-                                                        <th scope="col" class="py-3 px-6">KEGIATAN</th>
-                                                        <th scope="col" class="py-3 px-6">CAPAIAN</th>
-                                                        <th scope="col" class="py-3 px-6">POINT</th>
+                                                        <th scope="col" class="py-3 px-6">No. KD</th>
+                                                        <th scope="col" class="py-3 px-6">SEMESTER</th>
+                                                        <th scope="col" class="py-3 px-6">DESKRIPSI</th>
+                                                        <th scope="col" class="py-3 px-6">DESKRIPSI RINGKASAN</th>
                                                         <th scope="col" class="py-3 px-6">ACTION</th>
                                                     </tr>
                                                 </thead>
-                                                    <tbody id="isiPrestasi" class="bg-white">
+                                                    <tbody id="isiKurikulum" class="bg-white">
                                                     </tbody>
                                             </table>
                                         </div>
@@ -644,36 +696,37 @@ $kl = "";
     <script type="text/javascript">
         $(document).ready(function () {
     
-            getPrestasi();
+            getKurikulum();
     
             $("#btnTambah").on("click", function (e) {
                 $("#tabelTambah").toggle();
             });
     
-            function getPrestasi() {
-                $('#isiPrestasi').html('');
+            function getKurikulum() {
+                $('#isiKurikulum').html('');
                 var API = '{{env('API_KEY')}}';
                 request = $.ajax({
-                    url: API+'/api/prestasi',
+                    url: API+'/api/kurikulum',
                     method: 'get',
                     dataType: 'json',
                     data: {
                         test: 'test data'
                     },
                     success: function (data) {
-                        $(data).each(function (i, prestasi) {
-                            $('#isiPrestasi').append($("<tr>")
-                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(prestasi.tanggal))
-                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(prestasi.prestasi))
-                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(prestasi.kegiatan))
-                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(prestasi.capaian))
-                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(prestasi.point))
+                        $(data).each(function (i, kurikulum) {
+                            $('#isiKurikulum').append($("<tr>")
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">').append(kurikulum.no_kd))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis text-green-700">').append(kurikulum.semester))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(kurikulum.desk))
+                                .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap ellipsis">').append(kurikulum.desk_ringkasan))
                                 .append($('<td class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">'
                                 ).append(`
-                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditPrestasi" data-tutid="` 
-                                    + prestasi.id +`">Edit</button> 
-                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeletePrestasi" data-tutid="` 
-                                    + prestasi.id +`">Delete</button>
+                                    <button class="bg-green-200 hover:bg-green-e00 hover:text-white text-green-500 text-center py-1 px-3 rounded btntampilKurikulum" data-tutid="` 
+                                    + kurikulum.no_kd +`">Detail</button>
+                                    <button class="bg-blue-200 hover:bg-blue-e00 hover:text-white text-blue-500 text-center py-1 px-3 rounded btneditKurikulum" data-tutid="` 
+                                    + kurikulum.no_kd +`">Edit</button> 
+                                    <button class="bg-red-200 hover:bg-red-500 hover:text-white text-red-500 text-center py-1 px-3 rounded btndeleteKurikulum" data-tutid="` 
+                                    + kurikulum.no_kd +`">Delete</button>
                                     `)));
                         });
                         loadButtonss();
@@ -681,31 +734,46 @@ $kl = "";
                 })
             }
     
-            function updatePrestasi(id){
+            function updateKurikulum(id){
                 var API = '{{env('API_KEY')}}';
                 request = $.ajax({
-                    url: API+'/api/prestasi/' + id,
+                    url: API+'/api/kurikulum/' + id,
                     method: 'get',
                     dataType: 'json',
                     success: function(data) {
-                        $($("#updatePrestasii")[0].id).val(data.id);
-                        $($("#updatePrestasii")[0].updateTanggal).val(data.tanggal);
-                        $($("#updatePrestasii")[0].updatePrestasi).val(data.prestasi);
-                        $($("#updatePrestasii")[0].updateKegiatan).val(data.kegiatan);
-                        $($("#updatePrestasii")[0].updateCapaian).val(data.capaian);
-                        $($("#updatePrestasii")[0].updatePoint).val(data.point);
-                        $("#updatePrestasii").show();
+                        $($("#updateKurikulum")[0].no_kd).val(data.no_kd);
+                        $($("#updateKurikulum")[0].updateNo_kd).val(data.no_kd);
+                        $($("#updateKurikulum")[0].updateSemester).val(data.semester);
+                        $($("#updateKurikulum")[0].updateDesk).val(data.desk);
+                        $($("#updateKurikulum")[0].updateDesk_ringkasan).val(data.desk_ringkasan);
+                        $("#updateKurikulum").show();
+                    }
+                });
+            }
+
+            function tampilKurikulum(id){
+                var API = '{{env('API_KEY')}}';
+                request = $.ajax({
+                    url: API+'/api/kurikulum/' + id,
+                    method: 'get',
+                    dataType: 'json',
+                    success: function(data) {
+                        $($("#tampilKurikulum")[0].no_kd).val(data.no_kd);;
+                        $($("#tampilKurikulum")[0].tampilNo_kd).val(data.no_kd);
+                        $($("#tampilKurikulum")[0].tampilSemester).val(data.semester);
+                        $($("#tampilKurikulum")[0].tampilDesk).val(data.desk);
+                        $($("#tampilKurikulum")[0].tampilDesk_ringkasan).val(data.desk_ringkasan);
+                        $("#tampilKurikulum").show();
                     }
                 });
             }
     
             $("#submitData").on("click", function (e) {
                 let data = {
-                    tanggal: $($("#tabelTambah")[0].tanggal).val(),
-                    prestasi: $($("#tabelTambah")[0].prestasi).val(),
-                    kegiatan: $($("#tabelTambah")[0].kegiatan).val(),
-                    capaian: $($("#tabelTambah")[0].capaian).val(),
-                    point: $($("#tabelTambah")[0].point).val()
+                    no_kd: $($("#tabelTambah")[0].no_kd).val(),
+                    semester: $($("#tabelTambah")[0].semester).val(),
+                    desk: $($("#tabelTambah")[0].desk).val(),
+                    desk_ringkasan: $($("#tabelTambah")[0].desk_ringkasan).val()
                 }
     
                 postData(data);
@@ -718,25 +786,30 @@ $kl = "";
             function postData(data) {
                 var API = '{{env('API_KEY')}}';
                 request = $.ajax({
-                    url: API+'/api/prestasi',
+                    url: API+'/api/kurikulum',
                     method: 'POST',
                     dataType: 'json',
                     data: data,
                     success: function (data) {
                         console.log(data);
-                        getPrestasi();;
+                        getKurikulum();
                     }
                 });
             }
     
             function loadButtonss() {
-                $(".btneditPrestasi").click(function (e) {
-                    updatePrestasi($($(this)[0]).data("tutid"));
+                $(".btneditKurikulum").click(function (e) {
+                    updateKurikulum($($(this)[0]).data("tutid"));
+                    e.preventDefault();
+                });
+
+                $(".btntampilKurikulum").click(function (e) {
+                    tampilKurikulum($($(this)[0]).data("tutid"));
                     e.preventDefault();
                 });
     
-                $(".btndeletePrestasi").click(function (e) {
-                    deletePrestasi($($(this)[0]).data("tutid"));
+                $(".btndeleteKurikulum").click(function (e) {
+                    deleteKurikulum($($(this)[0]).data("tutid"));
                     e.preventDefault();
                 })
             }
@@ -744,46 +817,49 @@ $kl = "";
             function putData(id, data) {
                 var API = '{{env('API_KEY')}}';
                 request = $.ajax({
-                    url: API+'/api/prestasi/' + id,
+                    url: API+'/api/kurikulum/' + id,
                     method: 'PUT',
                     dataType: 'json',
                     data: data,
                     success: function (data) {
                         console.log(data);
-                        getPrestasi();
+                        getKurikulum();
                     }
                 });
             }
     
-            $("#btnUpdatePrestasi").on("click", function (e) {
+            $("#btnUpdateKurikulum").on("click", function (e) {
                 let data = {
-                    tanggal: $($("#updatePrestasii")[0].updateTanggal).val(),
-                    prestasi: $($("#updatePrestasii")[0].updatePrestasi).val(),
-                    kegiatan: $($("#updatePrestasii")[0].updateKegiatan).val(),
-                    capaian: $($("#updatePrestasii")[0].updateCapaian).val(),
-                    point: $($("#updatePrestasii")[0].updatePoint).val()
+                    no_kd: $($("#updateKurikulum")[0].updateNo_kd).val(),
+                    semester: $($("#updateKurikulum")[0].updateSemester).val(),
+                    desk: $($("#updateKurikulum")[0].updateDesk).val(),
+                    desk_ringkasan: $($("#updateKurikulum")[0].updateDesk_ringkasan).val()
                 }
     
-                putData($($("#updatePrestasii")[0].id).val(), data);
-                $("#updatePrestasii").trigger("reset");
-                $("#updatePrestasii").toggle();
+                putData($($("#updateKurikulum")[0].no_kd).val(), data);
+                $("#updateKurikulum").trigger("reset");
+                $("#updateKurikulum").toggle();
                 e.preventDefault();
     
             });
     
-            function deletePrestasi(id) {
+            function deleteKurikulum(id) {
                 var API ='{{env('API_KEY')}}';
                 request = $.ajax({
-                    url: API+'/api/prestasi/' + id,
+                    url: API+'/api/kurikulum/' + id,
                     method: 'DELETE',
                     dataType: 'json',
                     success: function (data) {
                         console.log(data);
-                        getPrestasi();
+                        getKurikulum();
                     }
                 });
             }
+    
         });
     </script>
+
+    {{-- Akhir Connect API --}}
 </body>
+
 </html>

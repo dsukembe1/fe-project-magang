@@ -9,4 +9,8 @@ class dafPrestasiController extends Controller
     function index(){
         return view('layouts.dafprestasi-layout');
     }
+
+    function guru(){
+        return view('guru.dafprestasi-layout');
+    }
 }
