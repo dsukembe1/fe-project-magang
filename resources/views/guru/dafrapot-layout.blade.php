@@ -83,24 +83,24 @@ $mapel = "";
             <center><img width="90" src="img/sekolahxyz2.png"></center>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-            <a href="dafnilai" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafnilai" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-list-alt mr-3"></i>
                 Nilai
             </a>
-            <a href="dafkurikulum" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafkurikulum" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler"
+            <a href="adm-dafextrakulikuler"
                 class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
-            <a href="dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
@@ -113,7 +113,7 @@ $mapel = "";
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
             </a> -->
-            <a href="dafrapot" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="adm-dafrapot" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
@@ -264,7 +264,7 @@ $mapel = "";
                                                     29
                                                 </td>
                                                 <td>
-                                                    <form action="rapot"
+                                                    <form action="adm-rapot"
                                                         class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <button
                                                             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -297,7 +297,7 @@ $mapel = "";
                                                     29
                                                 </td>
                                                 <td>
-                                                    <form action="rapot"
+                                                    <form action="adm-rapot"
                                                         class="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <button
                                                             class="text-white bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
