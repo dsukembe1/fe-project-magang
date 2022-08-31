@@ -112,24 +112,24 @@ $sm = "";
             <center><img width="90" src="img/sekolahxyz2.png"></center>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-            <a href="dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dashboard" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-            <a href="dafnilai" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafnilai" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-list-alt mr-3"></i>
                 Nilai
             </a>
-            <a href="dafkurikulum" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="adm-dafkurikulum" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-book mr-3"></i>
                 Kurikulum
             </a>
-            <a href="dafextrakulikuler"
+            <a href="adm-dafextrakulikuler"
                 class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
                 Ekstrakulikuler
             </a>
-            <a href="dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafprestasi" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
                 Prestasi
             </a>
@@ -142,7 +142,7 @@ $sm = "";
                 <i class="fas fa-hand-paper mr-3"></i>
                 Tata Tertib
             </a> -->
-            <a href="dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="adm-dafrapot" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-file mr-3"></i>
                 Rapot
             </a>
