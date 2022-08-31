@@ -16,7 +16,7 @@ class AddColumnRoleUsersTable extends Migration
         if (Schema::hasTable('users')){
             Schema::table('users', function (Blueprint $table) {
                 if (!Schema::hasColumn('users','role')){
-                    $table->string('role')->default(0);
+                    $table->string('role')->default(0)->after('email');
                 }
             });
         }
