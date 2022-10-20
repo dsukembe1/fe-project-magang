@@ -13,6 +13,7 @@
     {{-- <script src="mainAjax.js"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
@@ -232,9 +233,9 @@ $kl = "";
                             <label for="tanggal"
                                 class="block text-gray-700 text-sm font-bold mb-2">Tanggal Pelaksanaan</label>
                             <div class="col-sm-10">
-                                <input type="text"
+                                <input type="date"
                                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="tanggal" placeholder="Tanggal - Bulan - Tahun">
+                                    id="tanggal">
                             </div>
                         </div>
                         
@@ -626,7 +627,12 @@ $kl = "";
                     }
                 });
             }
+
+            // var mydate = new Date(form.tanggal.value);
+            // var str = mydate.toString("MMMM yyyy");
+            // window.alert(str);
         });
+
     </script>
 </body>
 

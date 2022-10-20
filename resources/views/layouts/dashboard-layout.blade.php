@@ -70,7 +70,10 @@
 
 </head>
 <?php
+use App\Models\Ruangan;
+
 $mapel = "";
+$ruangan = Ruangan::count();
 ?>
 
 <body class="bg-gray-100 font-family-karla flex">
@@ -245,7 +248,7 @@ $mapel = "";
                                             </div>
 
                                             <div class="mx-5">
-                                                <h4 class="text-2xl font-semibold text-gray-700">125</h4>
+                                                <h4 class="text-2xl font-semibold text-gray-700">{{ $ruangan }}</h4>
                                                 <div class="text-gray-500">Total Ruangan</div>
                                             </div>
                                         </div>
